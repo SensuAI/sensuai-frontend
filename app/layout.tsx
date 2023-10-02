@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={inter.className}>
         <SiteHeader/>
-        <Theme appearance='dark'>
+        <Theme appearance="light" accentColor="red" grayColor="mauve">
         {children}
         <ThemePanel/>
         </Theme></body>
