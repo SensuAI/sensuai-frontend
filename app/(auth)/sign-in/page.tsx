@@ -1,4 +1,10 @@
 'use client';
+
+import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
+import * as Form from '@radix-ui/react-form';
+import React from 'react';
+
+
 import {
   Select,
   SelectContent,
@@ -6,10 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
-import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
-import * as Form from '@radix-ui/react-form';
-import React from 'react';
 
 
 
@@ -20,8 +22,7 @@ function SignIn() {
   }
   const [serverErrors, setServerErrors] = React.useState({
     email: false,
-    password: false,
-    role: false
+    password: false
   });
   return (
 
@@ -154,7 +155,7 @@ function SignIn() {
       <Container size="1">
         <Flex direction="column" pb="4">
           <Heading align="center">¡Bienvenido de vuelta!</Heading>
-          <Text align="center"> Por favor digita tus credenciales y tu rol. </Text>
+          <Text align="center"> Por favor digita tus credenciales. </Text>
         </Flex>
 
 
@@ -163,7 +164,7 @@ function SignIn() {
         <Flex gap="4" direction="column">
           <Card size="4" variant='surface' style={{ width: '400px' }}>
             <Box mb="4" height="7">
-              <Heading size="6">Iniciar Sesión</Heading>
+              <Heading size="6" >Iniciar Sesión</Heading>
             </Box>
             <Form.Root
               // `onSubmit` only triggered if it passes client-side validation
@@ -175,7 +176,7 @@ function SignIn() {
                 event.preventDefault();
               }}
               onClearServerErrors={() =>
-                setServerErrors({ email: false, password: false, role: false })
+                setServerErrors({ email: false, password: false})
               }>
 
               <Box mb="5">
@@ -186,7 +187,7 @@ function SignIn() {
                   <Form.Field name="email">
                     <Text mb="2" size="2" weight="medium" >Correo Electrónico</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mail'></TextFieldInput>
+                      <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mai.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -198,16 +199,16 @@ function SignIn() {
                 </label>
               </Box>
               <Box position="relative" mb="5">
-                <Box position="absolute" top="0" right="0" style={{
+                {/* <Box position="absolute" top="0" right="0" style={{
                   marginTop: '-2px',
                 }}>
                   <Link className="rt-Text rt-reset-a rt-reset-button rt-Link rt-underline-auto rt-r-size-2">¿Olvidaste tu contraseña?</Link>
-                </Box>
+                </Box> */}
                 <label>
                   <Form.Field name="password" serverInvalid={serverErrors.password}>
                     <Text mb="2" size="2" weight="medium" >Contraseña</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required type="password" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu contraseña'></TextFieldInput>
+                      <TextFieldInput mt="2" required type="password" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu contraseña.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -219,12 +220,12 @@ function SignIn() {
                 </label>
               </Box>
 
-              <Box mb="5" mt="5">
+              {/* <Box mb="5" mt="5">
                 <label>
-                  {/* <Form.Field name="role" serverInvalid={serverErrors.role}>
+                   <Form.Field name="role" serverInvalid={serverErrors.role}>
                     <Text mb="2" size="2" weight="medium" >Selecciona tu Rol</Text>
                     <Form.Control asChild>
-                    <Select >
+                    <Select>
                       <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="¿Cuál es tu rol?" />
                       </SelectTrigger>
@@ -234,9 +235,9 @@ function SignIn() {
                       </SelectContent>
                     </Select>
                     </Form.Control>
-                  </Form.Field> */}
+                  </Form.Field> 
                 </label>
-              </Box>
+              </Box> */}
               <Flex display="flex" justify="end" gap="3" mt="6">
                 <Button size="2" variant='soft' >Crear Cuenta</Button>
                 <Form.Submit asChild>
