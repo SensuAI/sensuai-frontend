@@ -221,7 +221,7 @@ function SignIn() {
 
               <Box mb="5" mt="5">
                 <label>
-                  <Form.Field name="role" serverInvalid={serverErrors.role}>
+                  {/* <Form.Field name="role" serverInvalid={serverErrors.role}>
                     <Text mb="2" size="2" weight="medium" >Selecciona tu Rol</Text>
                     <Form.Control asChild>
                     <Select >
@@ -234,7 +234,7 @@ function SignIn() {
                       </SelectContent>
                     </Select>
                     </Form.Control>
-                  </Form.Field>
+                  </Form.Field> */}
                 </label>
               </Box>
               <Flex display="flex" justify="end" gap="3" mt="6">
