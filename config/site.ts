@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Inicia sesión",
       href: "/sign-in",
     },
+    {
+      title: "Crear Cuenta",
+      href: "/sign-up",
+    },
   ],
   mainNav: [
     {

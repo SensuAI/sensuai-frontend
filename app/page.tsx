@@ -18,7 +18,7 @@ export default function Home() {
     
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
-<div style={{ overflow: 'hidden' }} className="rt-Flex rt-r-display-flex rt-r-ai-center rt-r-jc-center rt-r-position-absolute rt-r-inset-0">
+<div style={{ zIndex:-1, overflow:'hidden'}} className="rt-Flex rt-r-display-flex rt-r-ai-center rt-r-jc-center rt-r-position-absolute rt-r-inset-0">
           <svg width="100%" height="200%" viewBox="0 0 2560 1920" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.6 }}>
             <g>
               <path

@@ -28,7 +28,7 @@ function SignUp() {
 
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
-      <div style={{ overflow: 'hidden' }} className="rt-Flex rt-r-display-flex rt-r-ai-center rt-r-jc-center rt-r-position-absolute rt-r-inset-0">
+      <div style={{ overflow: 'hidden', zIndex:-1 }} className="rt-Flex rt-r-display-flex rt-r-ai-center rt-r-jc-center rt-r-position-absolute rt-r-inset-0">
         <svg width="100%" height="200%" viewBox="0 0 2560 1920" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.6 }}>
           <g>
             <path
@@ -177,13 +177,13 @@ function SignUp() {
               onClearServerErrors={() =>
                 setServerErrors({ FirstName: false, LastName: false, email: false, password: false, role: false })
               }>
-
+          
               <Box mb="5">
-                <label>
+              <label>
                   <Form.Field name="FirstName">
                     <Text mb="2" size="2" weight="medium" >Nombre</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu nombre.'></TextFieldInput>
+                      <TextFieldInput mt="2" required mb="4" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu nombre.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -193,14 +193,11 @@ function SignUp() {
                 </Form.Message> */}
                   </Form.Field>
                 </label>
-              </Box>
-
-              <Box mb="5">
                 <label>
                   <Form.Field name="LastName">
                     <Text mb="2" size="2" weight="medium" >Apellido</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu apellido.'></TextFieldInput>
+                      <TextFieldInput mt="2" required mb="4" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu apellido.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -210,14 +207,11 @@ function SignUp() {
                 </Form.Message> */}
                   </Form.Field>
                 </label>
-              </Box>
-
-              <Box mb="5">
                 <label>
                   <Form.Field name="email">
                     <Text mb="2" size="2" weight="medium" >Correo Electrónico</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mail.'></TextFieldInput>
+                      <TextFieldInput mt="2"required type="email" mb="4" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mail.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -230,7 +224,7 @@ function SignUp() {
               
                 <label>
                   <Form.Field name="password" serverInvalid={serverErrors.password}>
-                    <Text mb="2" size="2" weight="medium" >Contraseña</Text>
+                    <Text mb="2"   size="2" weight="medium" >Contraseña</Text>
                     <Form.Control asChild >
                       <TextFieldInput mt="2" required type="password" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu contraseña.'></TextFieldInput>
                     </Form.Control>
