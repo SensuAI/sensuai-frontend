@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 import { Theme, ThemePanel } from '@radix-ui/themes'
 import { Inter } from 'next/font/google'
+import Background from "@/components/backgroundsvg";
 
 
 interface AuthLayoutProps {
