@@ -257,7 +257,6 @@ function SignUp() {
                 </label>
               </Box>
               <Flex display="flex" justify="end" gap="3" mt="6">
-                <Button size="2" variant='soft' >Crear Cuenta</Button>
                 <Form.Submit asChild>
                   <Button size="2" variant='solid' >Continuar</Button>
                 </Form.Submit>
