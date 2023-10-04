@@ -21,6 +21,7 @@ const SucursalForm = () => {
       <Fragment>
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
     
+          
           <Container size="1">
             <Flex direction="column" pb="4">
               <Heading align="center">Da de alta una sucursal</Heading>
