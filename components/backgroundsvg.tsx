@@ -1,10 +1,8 @@
 import React from "react";
 
-export default function BackgroundSVG() {
+function BackgroundSVG() {
     return (
   
-      
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
   
   <div style={{ overflow:'hidden', position: "fixed", bottom: 0, left: 0, right: 0, zIndex: -1 }} className="rt-Flex rt-r-display-flex rt-r-ai-center rt-r-jc-center rt-r-position-absolute rt-r-inset-0">
             <svg width="100%" height="200%" viewBox="0 0 2560 1920" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.6 }}>
@@ -129,6 +127,7 @@ export default function BackgroundSVG() {
               </defs>
             </svg>
           </div>
-          </main>
   )
 }
+
+export default BackgroundSVG;
