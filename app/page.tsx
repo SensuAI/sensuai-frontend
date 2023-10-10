@@ -8,7 +8,6 @@ import oxxocomb from ".//assets/oxxocomb.jpg";
 
 import React, { Fragment, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
-import * as z from "zod"
 import HeadInfo from '@/components/elements/head-info';
 import ImgSection from '@/components/elements/img-section';
 import BackgroundSVG from '@/components/backgroundsvg';

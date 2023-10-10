@@ -14,9 +14,13 @@ import {
 
 const ManagerForm = () => {
 
-    const data = {
-        sucursales: ["Vallejo", "Tultitlan", "Lalolandia", "Maxxdaddy"],
-    }
+    const [sucursales, setSucursales] = React.useState([
+      {id: 1, name: "Vallejo"},
+      {id: 2, name: "Tultitlan"},
+      {id: 3, name: "Lalolandia"},
+      {id: 4, name: "Maxxdaddy"},
+    ]);
+
     function submitForm(data: any) {
         console.log(data);
       }
@@ -131,9 +135,10 @@ const ManagerForm = () => {
                           <SelectTrigger className="w-[180px] overflow-y-auto opacity-100">
                             <SelectValue placeholder="Sucursal" />
                           </SelectTrigger>
-                          <SelectContent className="max-h-40 overflow-y-auto bg-white">
-                            {data.sucursales.map(sucursal => (
-                            <SelectItem value={sucursal}> {sucursal}</SelectItem>))}
+                          <SelectContent className="max-h-40 overflow-y-auto bg-white origin-bottom" style={{ transform: 'translateY(100%)' }}>
+                            {sucursales.map(sucursal => (
+                            <SelectItem key={sucursal.id} value={sucursal.name}> {sucursal.name}</SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                         </Form.Control>
