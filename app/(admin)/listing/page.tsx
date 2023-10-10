@@ -23,8 +23,6 @@ import {
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal, Trash2 } from "lucide-react"
 
-
-
 import { Checkbox } from "@/components/ui/checkbox"
 import {
   DropdownMenu,
@@ -86,7 +84,7 @@ export type Payment = {
   email: string
 }
 
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
     header: ({ table }) => (

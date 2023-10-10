@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button, Card } from '@radix-ui/themes';
 import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
-
+import Image from 'next/image';
 
 
 function Admin() {
@@ -11,7 +11,7 @@ function Admin() {
     <div className="min-h-screen flex flex-col items-center justify-center">
     <BackgroundSVG/>
       <h1 className="text-4xl font-bold mb-8">Bienvenido</h1>
-      <img src="/logogas.png" alt="ImagenPrincipal" className="w-24 h-24 mx-auto" />
+      <Image src="/logogas.png" alt="ImagenPrincipal" className="w-24 h-24 mx-auto" />
       <div className="p-4">
       <Card className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden">
         <CardContent className="p-4">
