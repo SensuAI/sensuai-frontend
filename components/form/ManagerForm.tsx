@@ -131,7 +131,7 @@ const ManagerForm = () => {
                           <SelectTrigger className="w-[180px] overflow-y-auto opacity-100">
                             <SelectValue placeholder="Sucursal" />
                           </SelectTrigger>
-                          <SelectContent className="max-h-40 overflow-y-auto bg-white">
+                          <SelectContent className="max-h-40 overflow-y-auto bg-white origin-bottom" style={{ transform: 'translateY(100%)' }}>
                             {data.sucursales.map(sucursal => (
                             <SelectItem value={sucursal}> {sucursal}</SelectItem>))}
                           </SelectContent>
