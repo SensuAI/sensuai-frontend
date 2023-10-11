@@ -3,9 +3,10 @@ import * as React from "react"
 
 
 import { Container, Flex, Heading, Text, Card, Badge, Box, TextFieldRoot, TextFieldInput, Link, Button } from '@radix-ui/themes'
-import { ChatBubbleIcon, HomeIcon } from '@radix-ui/react-icons'
+import { ChatBubbleIcon, HomeIcon, PersonIcon } from '@radix-ui/react-icons'
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
+
 
 import BackgroundSVG from "@/components/backgroundsvg"
 
@@ -14,7 +15,7 @@ import {
   ColumnFiltersState,
   SortingState,
   VisibilityState,
-  flexRender,
+  flexRender, 
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
@@ -22,6 +23,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal, Trash2 } from "lucide-react"
+
+
 
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -75,6 +78,57 @@ const data: Payment[] = [
     status: "failed",
     email: "carmella@hotmail.com",
   },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+
+  {
+    id: "bhqecj4p",
+    amount: 721,
+    status: "failed",
+    email: "carmella@hotmail.com",
+  },
+
 ]
 
 export type Payment = {
@@ -84,7 +138,7 @@ export type Payment = {
   email: string
 }
 
-const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -192,8 +246,8 @@ export default function Listing() {
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
@@ -206,9 +260,12 @@ export default function Listing() {
   })
 
   const [showTable, setShowTable] = React.useState(false);
+  const [showHeading, setShowHeading] = React.useState(true);
+
 
   const handleListarSucursalesClick = () => {
     setShowTable(true);
+    setShowHeading(false);
   };
   return (
     <main className="flex p-4">
@@ -222,43 +279,95 @@ export default function Listing() {
 
 
             <Flex gap="4" direction="column">
+              <Link asChild>
+              
               <Button asChild size="4" onClick={handleListarSucursalesClick}>
-                <Card style={{ height: 150 }}>
+                <Card  style={{ height: 150, width:350 }}>
 
-                  <Flex gap="4" direction="column">
-                    <Flex>
-                      <HomeIcon />
-                      <Heading align="center" ml="5" size="3">Listar Sucursales</Heading>
+                  <Flex width="100%" gap="4" direction="column">
+                    <Flex display="flex" >
+                      <HomeIcon className="flex mt-1"/>
+                      <Heading align="center" ml="3" size="5">Listar Sucursales</Heading>
                     </Flex>
                     <Flex gap="2">
-                      <Badge color="blue">Cliente registrado</Badge>
-                      <Badge color="blue">SPIN CARD</Badge>
+                      <Badge color="blue">Nuevos Clientes</Badge>
+                      <Badge color="orange">31 escaneos</Badge>
                     </Flex>
                     <Text size="1" align="center">
-                      Promociones disponibles.
+                      Selecciona aquí para ver.
                     </Text>
                   </Flex>
                 </Card>
               </Button>
+              </Link>
 
-              <Button asChild size="4">
-                <Card style={{ height: 150 }}>
+              <Link>
+
+              <Button asChild size="4" color="cyan">
+                <Card style={{ height: 150, width:350 }}>
 
                   <Flex gap="4" direction="column">
                     <Flex>
-                      <HomeIcon />
-                      <Heading align="center" ml="5" size="3">Listar Managers</Heading>
+                      <PersonIcon />
+                      <Heading align="center" ml="3" size="5">Listar Gerentes</Heading>
                     </Flex>
                     <Flex gap="2">
-                      <Badge color="blue">Cliente registrado</Badge>
-                      <Badge color="blue">SPIN CARD</Badge>
+                      <Badge color="blue">Nuevos Gerentes</Badge>
+                      <Badge color="orange">4 inactivos</Badge>
                     </Flex>
-                    <Text size="1" align="center">
-                      Promociones disponibles.
+                    <Text size="1" align="center" mr="3">
+                      Selecciona aquí para ver.
                     </Text>
                   </Flex>
                 </Card>
               </Button>
+              </Link>
+
+              
+              <Link
+              key={1}
+              href={"/sign-up"}
+              className={cn(
+                "flex items-center text-sm font-medium"
+              )}
+            >{<Button asChild size="4">
+            <Card style={{ height: 125, width:350 }}>
+
+              <Flex gap="4" direction="column">
+                <Flex>
+                <HomeIcon className=" mt-1 align-left"/>
+                  <Heading align="center" ml="4" size="5">Registrar Sucursal</Heading>
+                </Flex>
+                <Text size="1" align="center" mr="4">
+                  Selecciona aquí para registrar la información.
+                </Text>
+              </Flex>
+            </Card>
+          </Button>}
+            </Link> 
+            <Link
+              key={1}
+              href={"/sign-up"}
+              className={cn(
+                "flex items-center text-sm font-medium"
+              )}
+            >{<Button asChild size="4" color="cyan">
+                <Card style={{ height: 125 , width:350 }}>
+
+                  <Flex gap="4" direction="column">
+                    <Flex>
+                    <PersonIcon className=" mt-1 align-left"/>
+                      <Heading align="center" ml="4" size="5">Registrar Gerente</Heading>
+                    </Flex>
+                    <Text size="1" align="center" mr="4">
+                      Selecciona aquí para registrar la información.
+                    </Text>
+                  </Flex>
+                </Card>
+              </Button>}</Link>
+
+              
+
 
             </Flex>
           </Container>
@@ -270,11 +379,16 @@ export default function Listing() {
         <Flex gap="4" ml="2">
           <ScrollArea className="h-[680px] w-[1060px] rounded-md px-4">
             <Container>
+            {showHeading && (
+                <Heading align="center" mt="9" >¡Bienvenido! Selecciona una opción para continuar.</Heading>
+              )}
+              
               {showTable && <div className="w-full">
+              <Heading align="center" mt="2" >Sucursales</Heading>
                 <Flex display="flex" py="4" align="center">
 
                   <Input
-                    placeholder="Filter emails..."
+                    placeholder="Filtrar sucursales..."
                     value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
                       table.getColumn("email")?.setFilterValue(event.target.value)
@@ -286,7 +400,7 @@ export default function Listing() {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline" className="al justify-end">
-                        Columns <ChevronDown className="ml-2 h-4 w-4" />
+                        Columnas visibles <ChevronDown className="ml-2 h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent side="left" align="end">
@@ -362,7 +476,7 @@ export default function Listing() {
                     </TableBody>
                   </Table>
                 </div>
-                 <div className="flex items-center justify-end space-x-2 py-4">
+                  {/* <div className="flex items-center justify-end space-x-2 py-4">
                   <div className="flex-1 text-sm text-muted-foreground">
                     {table.getFilteredSelectedRowModel().rows.length} of{" "}
                     {table.getFilteredRowModel().rows.length} row(s) selected.
@@ -385,7 +499,7 @@ export default function Listing() {
                       Next
                     </Button>
                   </div>
-                </div> 
+                </div>   */}
               </div>}
 
               
@@ -397,3 +511,4 @@ export default function Listing() {
     </main>
   )
 }
+
