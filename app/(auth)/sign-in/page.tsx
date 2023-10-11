@@ -3,17 +3,11 @@
 import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
 import * as Form from '@radix-ui/react-form';
 import React from 'react';
+import { cn } from "@/lib/utils"
 
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+
 import BackgroundSVG from '@/components/backgroundsvg';
-
 
 
 
@@ -32,6 +26,7 @@ function SignIn() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
       <BackgroundSVG />
+
       <Container size="1">
         <Flex direction="column" pb="4">
           <Heading align="center">¡Bienvenido de vuelta!</Heading>
@@ -41,7 +36,7 @@ function SignIn() {
 
 
 
-        <Flex gap="4" direction="column">
+        <Flex gap="4" direction="column" >
           <Card size="4" variant='surface' style={{ width: '400px' }}>
             <Box mb="4" height="7">
               <Heading size="6" >Iniciar Sesión</Heading>
@@ -57,7 +52,7 @@ function SignIn() {
               }}
               onClearServerErrors={() =>
                 setServerErrors({ email: false, password: false })
-              }>
+              } >
 
               <Box mb="5">
 
@@ -119,7 +114,14 @@ function SignIn() {
                 </label>
               </Box> */}
               <Flex display="flex" justify="end" gap="3" mt="6">
-                <Button size="2" variant='soft' >Crear Cuenta</Button>
+              <Link
+              key={1}
+              href={"/sign-up"}
+              className={cn(
+                "flex items-center text-sm font-medium"
+              )}
+            >{"Crear Cuenta"}
+            </Link> 
                 <Form.Submit asChild>
                   <Button size="2" variant='solid' >Continuar</Button>
                 </Form.Submit>
@@ -136,5 +138,6 @@ function SignIn() {
 }
 
 export default SignIn;
+
 
 

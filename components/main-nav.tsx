@@ -17,9 +17,9 @@ export function MainNav({ items }: MainNavProps) {
         <Icons.SensuAI className="h-6 w-6" />
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </Link>
-      <div className="flex flex-1 justify-center">
+      <div className="flex justify-center w-full">
       {items?.length ? (
-        <nav className="flex items-center justify-center gap-10 space-x-2">
+        <nav className="ml-10 w-full flex items-center justify-center gap-10 space-x-2">
           {items?.map(
             (item, index) =>
               item.href && (
@@ -41,3 +41,4 @@ export function MainNav({ items }: MainNavProps) {
     </div>
   )
 }
+
