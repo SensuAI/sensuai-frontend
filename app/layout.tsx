@@ -5,7 +5,8 @@ import "@radix-ui/themes/styles.css"
 import { Theme, ThemePanel } from '@radix-ui/themes'
 import { siteConfig } from "@/config/site"
 import { SiteHeader } from '@/components/site-header'
-
+import { UserProvider } from './Context/userContext'
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,10 +36,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SiteHeader/>
+        <SiteHeader />
         <Theme appearance="light" accentColor="red" grayColor="mauve">
-        {children}
-        </Theme></body>
+          <UserProvider>
+            {children}
+          </UserProvider>
+          <Toaster />
+        </Theme>
+      </body>
     </html>
   )
 }
