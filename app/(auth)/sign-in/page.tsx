@@ -4,24 +4,44 @@ import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button
 import * as Form from '@radix-ui/react-form';
 import React from 'react';
 import { cn } from "@/lib/utils"
-
-
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/components/ui/use-toast"
+import { singin } from "@/services/authentication-service";
 
 import BackgroundSVG from '@/components/backgroundsvg';
 
-
-
 function SignIn() {
+  const { toast } = useToast()
 
   function submitForm(data: any) {
-    console.log(data);
+
+    singin(data)
+      .then((Response: any) => {
+        if (Response) {
+          toast({
+            description: "The user was found",
+            duration: 3000,
+          })
+        } else {
+          toast({
+            description: "Incorrect email/password",
+            duration: 3000,
+          })
+        }
+      })
+      .catch((error: any) => {
+        toast({
+          description: "Error en la respuesta: " + error,
+          duration: 3000,
+        })
+      });
   }
+
   const [serverErrors, setServerErrors] = React.useState({
     email: false,
     password: false
   });
   return (
-
 
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
@@ -32,8 +52,6 @@ function SignIn() {
           <Heading align="center">¡Bienvenido de vuelta!</Heading>
           <Text align="center"> Por favor digita tus credenciales. </Text>
         </Flex>
-
-
 
 
         <Flex gap="4" direction="column" >
@@ -114,14 +132,6 @@ function SignIn() {
                 </label>
               </Box> */}
               <Flex display="flex" justify="end" gap="3" mt="6">
-              <Link
-              key={1}
-              href={"/sign-up"}
-              className={cn(
-                "flex items-center text-sm font-medium"
-              )}
-            >{"Crear Cuenta"}
-            </Link> 
                 <Form.Submit asChild>
                   <Button size="2" variant='solid' >Continuar</Button>
                 </Form.Submit>
@@ -129,10 +139,9 @@ function SignIn() {
             </Form.Root>
           </Card>
 
-
         </Flex>
       </Container>
-
+      <Toaster />
     </main>
   )
 }
