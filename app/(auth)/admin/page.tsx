@@ -4,11 +4,10 @@ import { Button, Card, Link, Flex } from '@radix-ui/themes';
 import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
 import Image from 'next/image';
-import { cn } from "@/lib/utils"
-
-
+import { useRouter } from 'next/navigation';
 
 function Admin() {
+
   return (
     <div className="min-h-screen flex flex-col items-center p-12">
       <BackgroundSVG />

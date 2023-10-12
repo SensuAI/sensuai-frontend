@@ -2,8 +2,8 @@
 
 import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
 import * as Form from '@radix-ui/react-form';
-import React from 'react';
-import { cn } from "@/lib/utils"
+import React, { use } from 'react';
+
 import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/components/ui/use-toast"
 import { singin } from "@/services/authentication-service";
@@ -11,10 +11,10 @@ import { singin } from "@/services/authentication-service";
 import BackgroundSVG from '@/components/backgroundsvg';
 
 function SignIn() {
-  const { toast } = useToast()
+
+  const { toast } = useToast();
 
   function submitForm(data: any) {
-
     singin(data)
       .then((Response: any) => {
         if (Response) {
@@ -22,6 +22,7 @@ function SignIn() {
             description: "The user was found",
             duration: 3000,
           })
+          // Redirect to the admin page sending the Response.user data
         } else {
           toast({
             description: "Incorrect email/password",
@@ -32,7 +33,6 @@ function SignIn() {
       .catch((error: any) => {
         toast({
           description: "Error en la respuesta: " + error,
-          duration: 3000,
         })
       });
   }
