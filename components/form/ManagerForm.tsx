@@ -32,11 +32,12 @@ const ManagerForm = () => {
         MSucursal: false
       });
       return (
+        <main className="flex min-h-screen flex-col items-center justify-between p-6">
     
           <Container size="1">
             <Flex direction="column" pb="4">
-              <Heading align="center">Crea una cuenta</Heading>
-              <Text align="center"> Por favor introduce tu información. </Text>
+              <Heading align="center">Da de alta un gerente</Heading>
+              <Text align="center"> Por favor introduce la información. </Text>
             </Flex>
     
     
@@ -45,7 +46,7 @@ const ManagerForm = () => {
             <Flex gap="4" direction="column">
               <Card size="4" variant='surface' style={{ width: '400px' }}>
                 <Box mb="4" height="7">
-                  <Heading size="6">Regístrate</Heading>
+                  <Heading size="6">Registro de gerente</Heading>
                 </Box>
                 <Form.Root
                   // `onSubmit` only triggered if it passes client-side validation
@@ -156,6 +157,7 @@ const ManagerForm = () => {
     
             </Flex>
           </Container>
+          </main>
       )
     }
 
