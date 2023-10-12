@@ -3,10 +3,21 @@ import * as React from 'react';
 import { Button, Card, Link, Flex } from '@radix-ui/themes';
 import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
+import { useToast } from "@/components/ui/use-toast"
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useUserContext } from '@/app/Context/userContext';
+import { useEffect } from 'react';
 
 function Admin() {
+  const { toast } = useToast();
+  const { userId, setUserId, data, setData } = useUserContext();
+
+  useEffect(() => {
+    toast({
+      description: JSON.stringify(data, null, 2),
+      duration: 6000,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center p-12">
