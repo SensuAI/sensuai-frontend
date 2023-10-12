@@ -2,40 +2,50 @@
 
 import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
 import * as Form from '@radix-ui/react-form';
-import React from 'react';
-import { cn } from "@/lib/utils"
-import { Toaster } from "@/components/ui/toaster"
+import React, { use } from 'react';
+import { useEffect } from 'react';
+import { useUserContext } from '@/app/Context/userContext';
+
 import { useToast } from "@/components/ui/use-toast"
-import { singin } from "@/services/authentication-service";
+import { singin, SignInResponse } from "@/services/authentication-service";
+import { useRouter } from 'next/navigation';
 
 import BackgroundSVG from '@/components/backgroundsvg';
 
 function SignIn() {
-  const { toast } = useToast()
+  const router = useRouter();
+  const { toast } = useToast();
+  const { userId, setUserId, data, setData } = useUserContext();
 
-  function submitForm(data: any) {
-
-    singin(data)
-      .then((Response: any) => {
-        if (Response) {
-          toast({
-            description: "The user was found",
-            duration: 3000,
-          })
-        } else {
-          toast({
-            description: "Incorrect email/password",
-            duration: 3000,
-          })
-        }
-      })
-      .catch((error: any) => {
+  async function submitForm(data: any) {
+    try {
+      const Response: SignInResponse = await singin(data);
+      if (Response) {
+        setUserId(Response.user._id);
+        setData({
+          firstName: Response.user.first_name,
+          lastName: Response.user.last_name,
+          email: Response.user.email,
+          role: Response.user.role
+        });
         toast({
-          description: "Error en la respuesta: " + error,
+          description: "The user was found " + userId,
           duration: 3000,
-        })
+        });
+        router.push("/admin");
+      } else {
+        toast({
+          description: "Incorrect email/password",
+          duration: 3000,
+        });
+      }
+    } catch (error) {
+      toast({
+        description: "Error en la respuesta: " + error,
       });
+    }
   }
+  
 
   const [serverErrors, setServerErrors] = React.useState({
     email: false,
@@ -50,7 +60,7 @@ function SignIn() {
       <Container size="1">
         <Flex direction="column" pb="4">
           <Heading align="center">¡Bienvenido de vuelta!</Heading>
-          <Text align="center"> Por favor digita tus credenciales. </Text>
+          <Text align="center"> Por favor, digita tus credenciales. </Text>
         </Flex>
 
 
@@ -80,7 +90,7 @@ function SignIn() {
                   <Form.Field name="email">
                     <Text mb="2" size="2" weight="medium" >Correo Electrónico</Text>
                     <Form.Control asChild >
-                      <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mai.'></TextFieldInput>
+                      <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mail.'></TextFieldInput>
                     </Form.Control>
                     {/* <Form.Message match="valueMissing">
                     Campo requerido.
@@ -141,7 +151,6 @@ function SignIn() {
 
         </Flex>
       </Container>
-      <Toaster />
     </main>
   )
 }
