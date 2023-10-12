@@ -3,22 +3,12 @@ import * as React from 'react';
 import { Button, Card, Link, Flex } from '@radix-ui/themes';
 import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
-import { useToast } from "@/components/ui/use-toast"
 import Image from 'next/image';
-import { useUserContext } from '@/app/Context/userContext';
-import { useEffect } from 'react';
+import { cn } from "@/lib/utils"
+
+
 
 function Admin() {
-  const { toast } = useToast();
-  const { userId, setUserId, data, setData } = useUserContext();
-
-  useEffect(() => {
-    toast({
-      description: JSON.stringify(data, null, 2),
-      duration: 6000,
-    });
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col items-center p-12">
       <BackgroundSVG />
@@ -37,10 +27,8 @@ function Admin() {
         <Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
           Ver Estadísticas Globales
         </Button>
-
         <Link
           href={"/listing"}
-          
         >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
           Administrar Personal y Sucursales
         </Button>}
