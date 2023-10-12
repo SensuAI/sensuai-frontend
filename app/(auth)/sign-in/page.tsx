@@ -32,10 +32,7 @@ function SignIn() {
           description: "The user was found " + userId,
           duration: 3000,
         });
-        if (Response.user.role == "ADMIN")
-          router.push("/admin");
-        else if (Response.user.role == "MANAGER")
-          router.push("/manager");
+        router.push("/admin");
       } else {
         toast({
           description: "Incorrect email/password",

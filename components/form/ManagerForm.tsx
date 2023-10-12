@@ -40,6 +40,9 @@ const ManagerForm = () => {
               <Text align="center"> Por favor introduce la información. </Text>
             </Flex>
     
+    
+    
+    
             <Flex gap="4" direction="column">
               <Card size="4" variant='surface' style={{ width: '400px' }}>
                 <Box mb="4" height="7">
@@ -63,7 +66,7 @@ const ManagerForm = () => {
                       <Form.Field name="FirstName">
                         <Text mb="2" size="2" weight="medium" >Nombre</Text>
                         <Form.Control asChild >
-                          <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa el/los nombres.'></TextFieldInput>
+                          <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu nombre.'></TextFieldInput>
                         </Form.Control>
                         {/* <Form.Message match="valueMissing">
                         Campo requerido.
@@ -78,9 +81,9 @@ const ManagerForm = () => {
                   <Box mb="5">
                     <label>
                       <Form.Field name="LastName">
-                        <Text mb="2" size="2" weight="medium" >Apellidos</Text>
+                        <Text mb="2" size="2" weight="medium" >Apellido</Text>
                         <Form.Control asChild >
-                          <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa los apellidos.'></TextFieldInput>
+                          <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu apellido.'></TextFieldInput>
                         </Form.Control>
                         {/* <Form.Message match="valueMissing">
                         Campo requerido.
@@ -97,7 +100,7 @@ const ManagerForm = () => {
                       <Form.Field name="email">
                         <Text mb="2" size="2" weight="medium" >Correo Electrónico</Text>
                         <Form.Control asChild >
-                          <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa el e-mail.'></TextFieldInput>
+                          <TextFieldInput mt="2" required type="email" mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu e-mail.'></TextFieldInput>
                         </Form.Control>
                         {/* <Form.Message match="valueMissing">
                         Campo requerido.
@@ -112,7 +115,7 @@ const ManagerForm = () => {
                       <Form.Field name="password" serverInvalid={serverErrors.password}>
                         <Text mb="2" size="2" weight="medium" >Contraseña</Text>
                         <Form.Control asChild >
-                          <TextFieldInput mt="2" required type="password" size="2" variant="surface" spellCheck="false" placeholder='Ingresa la contraseña temporal.'></TextFieldInput>
+                          <TextFieldInput mt="2" required type="password" size="2" variant="surface" spellCheck="false" placeholder='Ingresa tu contraseña.'></TextFieldInput>
                         </Form.Control>
                         {/* <Form.Message match="valueMissing">
                         Campo requerido.
