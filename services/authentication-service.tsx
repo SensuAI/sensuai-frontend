@@ -25,5 +25,5 @@ export async function singin(user: any): Promise<boolean> {
       const data = await response.json();
       return data;
     });
-    return response.status == "Success";
+    return response.data;
 }
