@@ -38,7 +38,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <SiteHeader/>
         <Theme appearance="light" accentColor="red" grayColor="mauve">
         {children}
-        <ThemePanel/>
         </Theme></body>
     </html>
   )
