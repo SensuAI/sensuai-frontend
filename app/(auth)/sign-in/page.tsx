@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useUserContext } from '@/app/Context/userContext';
 
 import { useToast } from "@/components/ui/use-toast"
-import { singin, SignInResponse } from "@/services/authentication-service";
+import { signin, SignInResponse } from "@/services/authentication-service";
 import { useRouter } from 'next/navigation';
 
 import BackgroundSVG from '@/components/backgroundsvg';
@@ -19,7 +19,7 @@ function SignIn() {
 
   async function submitForm(data: any) {
     try {
-      const Response: SignInResponse = await singin(data);
+      const Response: SignInResponse = await signin(data);
       if (Response) {
         setUserId(Response.user._id);
         setData({
@@ -44,7 +44,7 @@ function SignIn() {
       }
     } catch (error) {
       toast({
-        description: "Error en la respuesta: " + error,
+        description: "Error in the response: " + error,
       });
     }
   }
