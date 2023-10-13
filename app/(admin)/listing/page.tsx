@@ -207,13 +207,13 @@ export default function Listing() {
                   <Card style={{ height: 150, width: 350 }}>
 
                     <Flex width="100%" gap="4" direction="column">
-                      <Flex display="flex" >
+                      <Flex display="flex" justify="center" >
                         <HomeIcon className="flex mt-1" />
                         <Heading align="center" ml="3" size="5">Listar Sucursales</Heading>
                       </Flex>
                       <Flex gap="2">
-                        <Badge color="blue">Nuevos Clientes</Badge>
-                        <Badge color="orange">31 escaneos</Badge>
+                        <Badge color="blue">Filtrar por calle</Badge>
+                        <Badge color="orange">Eliminar Sucursales</Badge>
                       </Flex>
                       <Text size="1" align="center">
                         Selecciona aquí para ver.
@@ -228,18 +228,21 @@ export default function Listing() {
                 <Button asChild size="4" color="cyan" onClick={handleListManagers}>
                   <Card style={{ height: 150, width: 350 }}>
 
-                    <Flex gap="4" direction="column">
-                      <Flex>
-                        <PersonIcon />
-                        <Heading align="center" ml="3" size="5">Listar Gerentes</Heading>
+                    <Flex width="100%" gap="4" direction="column" >
+                      <Flex display="flex" justify="start">
+                        <PersonIcon className="flex mt-1"/>
+                        <Heading align="center" ml="2" size="5">Listar Gerentes</Heading>
                       </Flex>
-                      <Flex gap="2">
-                        <Badge color="blue">Nuevos Gerentes</Badge>
-                        <Badge color="orange">4 inactivos</Badge>
+                      <Flex justify="center">
+                        <Badge color="blue">Filtrar por email</Badge>
+                        {/* <Badge color="orange">Eliminar Gerentes</Badge> */}
+
                       </Flex>
-                      <Text size="1" align="center" mr="3">
+                      <Flex justify="center">
+                      <Text size="1" align="center">
                         Selecciona aquí para ver.
                       </Text>
+                      </Flex>
                     </Flex>
                   </Card>
                 </Button>
@@ -249,14 +252,16 @@ export default function Listing() {
                 <Button asChild size="4" onClick={handleFormBranch}>
                   <Card style={{ height: 125, width: 350 }}>
 
-                    <Flex gap="4" direction="column">
-                      <Flex>
-                        <HomeIcon className=" mt-1 align-left" />
-                        <Heading align="center" ml="4" size="5">Registrar Sucursal</Heading>
+                    <Flex width="100%" gap="4" direction="column">
+                      <Flex display="flex" justify="center">
+                        <HomeIcon className="flex mt-1"/>
+                        <Heading align="center" ml="2" size="5">Registrar Sucursal</Heading>
                       </Flex>
-                      <Text size="1" align="center" mr="4">
+                      <Flex justify="center">
+                      <Text size="1" align="center">
                         Selecciona aquí para registrar la información.
                       </Text>
+                      </Flex>
                     </Flex>
                   </Card>
                 </Button>
@@ -266,14 +271,16 @@ export default function Listing() {
                 <Button asChild size="4" color="cyan" onClick={handleFormManager}>
                   <Card style={{ height: 125, width: 350 }}>
 
-                    <Flex gap="4" direction="column">
-                      <Flex>
-                        <PersonIcon className=" mt-1 align-left" />
-                        <Heading align="center" ml="4" size="5">Registrar Gerente</Heading>
+                    <Flex width="100%" gap="4" direction="column">
+                      <Flex display="flex" justify="center">
+                        <PersonIcon className="flex mt-1"/>
+                        <Heading align="center" ml="2" size="5">Registrar Gerente</Heading>
                       </Flex>
-                      <Text size="1" align="center" mr="4">
+                      <Flex justify="center">
+                      <Text size="1" align="center">
                         Selecciona aquí para registrar la información.
                       </Text>
+                      </Flex>
                     </Flex>
                   </Card>
                 </Button>
