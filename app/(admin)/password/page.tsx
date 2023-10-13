@@ -9,8 +9,9 @@ import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
 export default function Upload() {
-  function submitForm(data: any) {
-    const {toast} = useToast();
+  const {toast} = useToast();
+
+  function submitForm(data: any) {    
     if ((data) && (data.newPassword === data.repPassword)){
         toast({description: data, duration: 3000})
     }

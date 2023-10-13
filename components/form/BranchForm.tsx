@@ -4,6 +4,8 @@ import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Button } fro
 import * as Form from '@radix-ui/react-form';
 import React, { Fragment } from 'react';
 
+import { useToast } from "@/components/ui/use-toast"
+
 import {
   Select,
   SelectContent,
@@ -13,9 +15,12 @@ import {
 } from "@/components/ui/select"
 
 const BranchForm = () => {
+    const { toast } = useToast();
 
     function submitForm(data: any) {
-        console.log(data);
+        toast({
+          description: JSON.stringify(data, null, 2)
+        });
       }
 
     const [serverErrors, setServerErrors] = React.useState({
@@ -29,10 +34,10 @@ const BranchForm = () => {
     });
 
     const [managers, setManagers] = React.useState([
-      {id: 1, name: "Eduardo"},
-      {id: 2, name: "Tultitlan"},
-      {id: 3, name: "Lalolandia"},
-      {id: 4, name: "Maxxdaddy"},
+      {id: "1", name: "Eduardo"},
+      {id: "2", name: "Tultitlan"},
+      {id: "3", name: "Lalolandia"},
+      {id: "4", name: "Maxxdaddy"},
     ]);
 
       return(
@@ -65,7 +70,7 @@ const BranchForm = () => {
     
                   <Box mb="5">
                     <label>
-                      <Form.Field name="SucursalName">
+                      <Form.Field name="name">
                         <Text mb="2" size="2" weight="medium" >Nombre de la sucursal</Text>
                         <Form.Control asChild >
                           <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa el nombre de la sucursal.'></TextFieldInput>
@@ -82,7 +87,7 @@ const BranchForm = () => {
     
                   <Box mb="5">
                     <label>
-                      <Form.Field name="State">
+                      <Form.Field name="state">
                         <Text mb="2" size="2" weight="medium" >Estado</Text>
                         <Form.Control asChild >
                           <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa el Estado.'></TextFieldInput>
@@ -99,7 +104,7 @@ const BranchForm = () => {
     
                   <Box mb="5">
                     <label>
-                      <Form.Field name="City">
+                      <Form.Field name="city">
                         <Text mb="2" size="2" weight="medium" >Ciudad</Text>
                         <Form.Control asChild >
                           <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa la ciudad.'></TextFieldInput>
@@ -112,9 +117,11 @@ const BranchForm = () => {
                     </Form.Message> */}
                       </Form.Field>
                     </label>
+                  </Box>
                   
+                  <Box mb="5">
                     <label>
-                      <Form.Field name="ZipCode" >
+                      <Form.Field name="postal_code" >
                         <Text mb="2" size="2" weight="medium" >Código Postal</Text>
                         <Form.Control asChild >
                           <TextFieldInput type="number" mt="2" required size="2" variant="surface" placeholder='Ingresa el C.P.'></TextFieldInput>
@@ -131,7 +138,7 @@ const BranchForm = () => {
 
                   <Box mb="5">
                     <label>
-                      <Form.Field name="Street">
+                      <Form.Field name="street">
                         <Text mb="2" size="2" weight="medium" >Calle</Text>
                         <Form.Control asChild >
                           <TextFieldInput mt="2" required mb="2" size="2" variant="surface" spellCheck="false" placeholder='Ingresa la calle.'></TextFieldInput>
@@ -144,10 +151,12 @@ const BranchForm = () => {
                     </Form.Message> */}
                       </Form.Field>
                     </label>
+                  </Box>
                   
+                  <Box mb="5">
                     <label>
-                      <Form.Field name="Snumber" >
-                        <Text mb="2" size="2" weight="medium" >Numero</Text>
+                      <Form.Field name="phone" >
+                        <Text mb="2" size="2" weight="medium" >Numero telefonico</Text>
                         <Form.Control asChild >
                           <TextFieldInput type="number" mt="2" required size="2" variant="surface" placeholder='Ingresa el numero'></TextFieldInput>
                         </Form.Control>
@@ -163,16 +172,16 @@ const BranchForm = () => {
 
                   <Box mb="5" mt="5">
                     <label>
-                      <Form.Field name="role" serverInvalid={serverErrors.Manager}>
-                        <Text mb="2" size="2" weight="medium" >Manager</Text>
+                      <Form.Field name="id_manager" serverInvalid={serverErrors.Manager}>
+                        <Text mb="2" size="2" weight="medium" >Gerente</Text>
                         <Form.Control asChild>
                         <Select>
                           <SelectTrigger className="w-[180px] overflow-y-auto opacity-100">
-                            <SelectValue placeholder="Sucursal" />
+                            <SelectValue placeholder="Nombre" />
                           </SelectTrigger>
                           <SelectContent className="max-h-40 overflow-y-auto bg-white origin-bottom" style={{ transform: 'translateY(100%)' }}>
                             {managers.map(manager => (
-                            <SelectItem key={manager.id} value={manager.name}> {manager.name}</SelectItem>
+                            <SelectItem key={manager.id} value={manager.id}> {manager.name}</SelectItem>
                             ))}
                           </SelectContent>
                         </Select>

@@ -19,7 +19,7 @@ const ManagerForm = () => {
           description: "The user was created",
           duration: 3000,
         });
-        
+
       } else {
         toast({
           description: "Incorrect parameters format. Please try again.",
@@ -144,7 +144,6 @@ const ManagerForm = () => {
               </Flex>
             </Form.Root>
           </Card>
-
 
         </Flex>
       </Container>
