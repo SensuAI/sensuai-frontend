@@ -10,7 +10,7 @@ export interface SignInResponse {
   };
 }
 
-export async function singup(user: any): Promise<boolean> {
+export async function signup(user: any): Promise<boolean> {
     const response = await fetch(`${API_BASE_URL}/user/signup`, {
       method: "POST",
       headers: {
@@ -24,7 +24,7 @@ export async function singup(user: any): Promise<boolean> {
     return response.status == "Success";
 }
 
-export async function singin(user: any): Promise<SignInResponse> {
+export async function signin(user: any): Promise<SignInResponse> {
     const response = await fetch(`${API_BASE_URL}/user/signin`, {
       method: "POST",
       headers: {

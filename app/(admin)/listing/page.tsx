@@ -19,7 +19,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
-import SucursalForm from "@/components/form/SucursalForm"
+import BranchForm from "@/components/form/BranchForm"
 import { DataTableB } from "@/components/admin-branches/data-table"
 import { DataTableM } from "@/components/admin-managers/data-table"
 import { Branch, columns } from "@/components/admin-branches/columns"
@@ -292,7 +292,7 @@ export default function Listing() {
                 <Heading align="center" mt="9" >¡Bienvenido! Selecciona una opción para continuar.</Heading>
               )}
 
-              {showFormBranch && (<SucursalForm />)}
+              {showFormBranch && (<BranchForm />)}
               {showFormManager && (<ManagerForm />)}
               {showTableBranches && <DataTableB columns={columns} data={data} />}
               {showTableManagers && <DataTableM columns={columnsM} data={dataM} />}
