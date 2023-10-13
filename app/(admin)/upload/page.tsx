@@ -10,8 +10,9 @@ import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
 export default function Upload() {
+  const {toast} = useToast();
+
   function submitForm(data: any) {
-    const {toast} = useToast();
     if (data){
       toast({description: data["Image"].name, duration: 3000})
     }
