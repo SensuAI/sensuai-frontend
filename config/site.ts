@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "SensuAI",
   description:
-    "¡Un lugar donde predecir la casa de tus sueños a un precio de ensueño!.",
+    "¡La plataforma favorita de Oxxo Gas!",
   secNav: [
     {
       title: "Inicia sesión",
@@ -22,18 +22,13 @@ export const siteConfig = {
     {
       title: "Sobre nosotros",
       href: "/",
-
-    },
-    {
-      title: "¡Únete!",
-      href: "/sign-up",
     },
   ],
 
 
   links: {
     twitter: "https://twitter.com/solisolsoli",
-    github: "https://github.com/TempleOSi",
+    github: "https://github.com/SensuAI",
     docs: "https://ui.shadcn.com",
   },
 }
