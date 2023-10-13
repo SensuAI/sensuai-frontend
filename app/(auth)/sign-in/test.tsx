@@ -8,14 +8,14 @@ import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/components/ui/use-toast"
 
 import BackgroundSVG from '@/components/backgroundsvg';
-import { singin } from "@/services/authentication-service";
+import { signin } from "@/services/authentication-service";
 
 function SignIn() {
+  const { toast } = useToast()
 
   function submitForm(data: any) {
-    const { toast } = useToast()
 
-    singin(data)
+    signin(data)
       .then((response: any) => {
         if (response) {
           toast({
