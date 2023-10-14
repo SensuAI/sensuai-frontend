@@ -1,13 +1,10 @@
 'use client';
 import Image from 'next/image'
-import { Container, Flex, Heading, Text, Card, Badge, Box, TextFieldRoot, TextFieldInput, Link, Button } from '@radix-ui/themes'
-import { ChatBubbleIcon } from '@radix-ui/react-icons'
-import * as Form from '@radix-ui/react-form';
+import { SiteHeader } from '@/components/site-header'
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 
 import React, { Fragment, useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
 import HeadInfo from '@/components/elements/head-info';
 import ImgSection from '@/components/elements/img-section';
 import BackgroundSVG from '@/components/backgroundsvg';
@@ -15,9 +12,8 @@ import BackgroundSVG from '@/components/backgroundsvg';
 export default function Home() {
   return (
 
-
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
+      
       <BackgroundSVG />
 
       <Image
