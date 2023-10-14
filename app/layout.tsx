@@ -50,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       {isHeaderVisible && <SiteHeader />}
         {/* {pathname.startsWith('/listing') && <SiteHeader />} */}
         <Theme appearance="light" accentColor="red" grayColor="mauve">
-          <ThemePanel/>
           <UserProvider>
             {children}
           </UserProvider>

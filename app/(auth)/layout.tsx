@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 import { Theme, ThemePanel } from '@radix-ui/themes'
 import { Inter } from 'next/font/google'
 import Background from "@/components/backgroundsvg";
+import { SecHeader } from "@/components/sec-header";
 
 
 interface AuthLayoutProps {
@@ -20,7 +21,7 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
     //     </Theme></body>
     // </html>
     
-    <div>{children}</div>
+    <div><SecHeader/>{children}</div>
   )
 };
 
