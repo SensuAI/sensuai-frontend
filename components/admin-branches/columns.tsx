@@ -108,15 +108,14 @@ export const columns: ColumnDef<Branch>[] = [
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>Acciones</DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() => navigator.clipboard.writeText(branch.id_manager)}
               >
-                Copy payment id_manager
+                Copiar id de Gerente
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
+              <DropdownMenuItem>Eliminar Sucursal</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )

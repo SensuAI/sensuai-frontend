@@ -42,7 +42,7 @@ function Manager() {
           Ver Estadísticas Globales
         </Button>
         <Link
-          href={"/listing"}
+          href={"/listing-m"}
         >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
           Ver datos capturados
         </Button>}
