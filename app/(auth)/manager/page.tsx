@@ -38,25 +38,35 @@ function Manager() {
       </div>
       <Flex gap="4" direction="column">
       <Flex className="space-x-4">
-        <Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-          Ver Estadísticas Globales
-        </Button>
-        <Link
-          href={"/listing-m"}
-        >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-          Ver datos capturados
-        </Button>}
-        </Link>
-      </Flex>
-      <Flex className="space-x-4" justify="center">
-        
-        <Link
-          href={"/listing"}
-        >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-          Cargar archivo para identificación
-        </Button>}
-        </Link>
-      </Flex>
+          <Link
+            href={"/branch-stats"}
+          > {<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+            Ver Estadísticas Globales
+          </Button>}
+          </Link> 
+          <Link
+            href={"/listing-m"}
+          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+            Ver datos capturados
+          </Button>}
+          </Link>
+        </Flex>
+
+        <Flex className="space-x-4" justify="center">
+          <Link
+            href={"/upload"}
+          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+            Cargar archivo para identificación
+          </Button>}
+          </Link>
+          <Link
+            href={"/password"}
+          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+            Cambiar contraseña
+          </Button>}
+          </Link>
+        </Flex>
+
       </Flex>
     </div>
 
