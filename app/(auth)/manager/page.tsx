@@ -37,7 +37,8 @@ function Manager() {
         </Card>
       </div>
       <Flex gap="4" direction="column">
-        <Flex className="space-x-4">
+      <Flex className="space-x-4">
+
           <Link
             href={"/branch-stats"}
           > {<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
@@ -66,8 +67,6 @@ function Manager() {
           </Button>}
           </Link>
         </Flex>
-
-
       </Flex>
     </div>
 

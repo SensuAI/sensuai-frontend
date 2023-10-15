@@ -92,15 +92,14 @@ export const columnsM: ColumnDef<Manager>[] = [
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>Acciones</DropdownMenuLabel>
               <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(manager.first_name)}
+                onClick={() => navigator.clipboard.writeText(manager.email)}
               >
-                Copy payment id_manager
+                Copiar email de Gerente
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
+              <DropdownMenuItem>Eliminar Gerente</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )
