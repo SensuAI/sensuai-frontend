@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { Card, Flex, Heading, Text, Strong } from '@radix-ui/themes'
 import { ScrollArea } from "@/components/ui/scroll-area"
+
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 
@@ -13,9 +14,8 @@ import BackgroundSVG from '@/components/backgroundsvg';
 export default function Home() {
   return (
 
-
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
+      
       <BackgroundSVG />
       <ScrollArea className="h-[710px] w-[1422px] rounded-md ">
         <Flex justify="center" mt="6" direction="row">
