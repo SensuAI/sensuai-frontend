@@ -34,18 +34,15 @@ function Admin() {
         </Card>
       </div>
       <Flex className="space-x-4">
-        <Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-          Ver Estadísticas Globales
+        <Button size="4" variant='solid'>
+          Estadísticas Globales
         </Button>
-
         <Link
           href={"/listing"}
-          
-        >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-          Administrar Personal y Sucursales
+        >{<Button size="4" variant='solid'>
+          Personal y Sucursales
         </Button>}
         </Link>
-
       </Flex>
     </div>
   )

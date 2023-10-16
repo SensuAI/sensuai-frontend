@@ -35,35 +35,37 @@ function Manager() {
         </Card>
       </div>
       <Flex gap="4" direction="column">
-      <Flex className="space-x-4">
-
-          <Link
-            href={"/branch-stats"}
-          > {<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Ver Estadísticas Globales
-          </Button>}
-          </Link> 
-          <Link
-            href={"/listing-m"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Ver datos capturados
-          </Button>}
-          </Link>
+        <Flex className="space-x-4">
+          <div className="flex-1">
+            <Link href={"/branch-stats"}>
+              <Button size="4" variant='solid' className="w-full">
+                Estadísticas Globales
+              </Button>
+            </Link>
+          </div>
+          <div className="flex-1">
+            <Link href={"/listing-m"}>
+              <Button size="4" variant='solid' className="w-full">
+                Datos capturados
+              </Button>
+            </Link>
+          </div>
         </Flex>
 
         <Flex className="space-x-4" justify="center">
-          <Link
-            href={"/upload"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Cargar archivo para identificación
-          </Button>}
-          </Link>
-          <Link
-            href={"/password"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Cambiar contraseña
-          </Button>}
-          </Link>
+            <Link
+              href={"/upload"}
+            >{<Button size="4" variant='solid'>
+              Cargar archivo para identificación
+            </Button>}
+            </Link>
+
+            <Link
+              href={"/password"}
+            >{<Button size="4" variant='solid' className='w-full'>
+              Cambiar contraseña
+            </Button>}
+            </Link>
         </Flex>
       </Flex>
     </div>
