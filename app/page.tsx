@@ -1,43 +1,61 @@
 'use client';
 import Image from 'next/image'
-import { Container, Flex, Heading, Text, Card, Badge, Box, TextFieldRoot, TextFieldInput, Link, Button } from '@radix-ui/themes'
-import { ChatBubbleIcon } from '@radix-ui/react-icons'
-import * as Form from '@radix-ui/react-form';
+import { Card, Flex, Heading, Text, Strong } from '@radix-ui/themes'
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 
-import React, { Fragment, useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
 import HeadInfo from '@/components/elements/head-info';
-import ImgSection from '@/components/elements/img-section';
 import BackgroundSVG from '@/components/backgroundsvg';
 
 export default function Home() {
   return (
 
-
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      
       <BackgroundSVG />
+      <ScrollArea className="h-[710px] w-[1422px] rounded-md ">
+        <Flex justify="center" mt="6" direction="row">
 
-      <Image
-        src="/logogas.png"
-        alt="Logo oxxo"
-        width={100}
-        height={100}
-      />
+          <Image
+            src="/logogas.png"
+            alt="Logo oxxo"
+            width={100}
+            height={100}
+          />
+        </Flex>
 
-      <HeadInfo
-        title="Bienvenido a tu plataforma"
-        text="Aquí podrás encontrar más información acerca de los clientes que visitan tus sucursales así como diferentes sugerencias de promociones que puedes ofrecer"
-        image={oxxosl}
-      />
+        <Flex>
+          <HeadInfo
+            title="Bienvenido a tu plataforma"
+            image={oxxosl}
+          />
+        </Flex>
 
-      <ImgSection
-        title="¿Cómo funciona?"
-        text="Con ayuda de las cámaras ubicadas en cada una de las sucursales se puede identificar a los clientes que visitan las tiendas, así como su frecuencia de visita y el tiempo que permanecen en estas, basado en estos datos el modelo genera sugerencias de promociones que pueden ser ofrecidas a los clientes"
-        image={oxxocomb}
-      />
+        <Flex justify="center" mt="4">
+          <Card variant='classic' style={{ height: 500, width: 1050 }}>
+            <Flex justify="center" mt="4">
+              <Heading highContrast color="sky" size="8">¿Cómo funciona?</Heading>
+            </Flex>
+            <Flex gap="4" justify="center" mt="5" px="9" width="auto" mr="9" ml="9" direction="column">
+              <Text highContrast color="sky" align="center" size="4">Con ayuda de las cámaras ubicadas en cada una de las sucursales <Strong>se puede identificar a los clientes que visitan las tiendas</Strong>, así como su frecuencia de visita y el tiempo que permanecen en estas. Basado en estos datos, <Strong>el modelo genera sugerencias de promociones</Strong> ser ofrecidas a los clientes.</Text>
+            </Flex>
+            <Flex justify="center" mt="6">
+              <Image
+                style={{
+                  borderRadius: '8px',
+                  border: '1px solid crimson'
+                }}
+                src={oxxocomb}
+                width={600}
+                height={600}
+                alt="House Example"
+                className="rounded-lg" />
+            </Flex>
+          </Card>
+        </Flex>
+      </ScrollArea>
 
       {/* 
       <Container size="1">

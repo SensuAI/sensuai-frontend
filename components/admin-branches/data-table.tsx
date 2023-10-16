@@ -79,10 +79,10 @@ export function DataTableB<TData, TValue>({
             <Flex display="flex" py="4" align="center">
 
                 <Input
-                    placeholder="Filtrar sucursales..."
-                    value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+                    placeholder="Filtrar sucursales por calle..."
+                    value={(table.getColumn("street")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
-                        table.getColumn("email")?.setFilterValue(event.target.value)
+                        table.getColumn("street")?.setFilterValue(event.target.value)
                     }
                     className="max-w-sm"
                 />

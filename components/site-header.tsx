@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-40 w-full border-b h-20">
+    <header className="bg-gray-500/[.06] sticky top-0 z-40 w-full border-b h-20">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex items-center justify-end space-x-4 mt-4">

@@ -1,3 +1,4 @@
+"use client"
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -7,14 +8,16 @@ import { siteConfig } from "@/config/site"
 import { SiteHeader } from '@/components/site-header'
 import { UserProvider } from './Context/userContext'
 import { Toaster } from "@/components/ui/toaster"
+import {usePathname} from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
+  
   description: siteConfig.description,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -31,12 +34,18 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-
 export default function RootLayout({ children }: RootLayoutProps) {
+
+  const pathname = usePathname()
+    // Lista de rutas en las que se desea mostrar la NavBar.
+    const headerVisibleRoutes = ['/']; 
+    const isHeaderVisible = headerVisibleRoutes.includes(pathname);
+  
   return (
-    <html lang="en">
+    <html lang="en"  suppressHydrationWarning>
       <body className={inter.className}>
-        <SiteHeader />
+      {isHeaderVisible && <SiteHeader />}
+        {/* {pathname.startsWith('/listing') && <SiteHeader />} */}
         <Theme appearance="light" accentColor="red" grayColor="mauve">
           <UserProvider>
             {children}
