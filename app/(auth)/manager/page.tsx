@@ -1,13 +1,11 @@
 'use client';
 import * as React from 'react';
 import { Button, Card, Link, Flex, Text, Heading } from '@radix-ui/themes';
-import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
 import { useToast } from "@/components/ui/use-toast"
 import Image from 'next/image';
 import { useUserContext } from '@/app/Context/userContext';
 import { useEffect } from 'react';
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 function Manager() {
   const { toast } = useToast();

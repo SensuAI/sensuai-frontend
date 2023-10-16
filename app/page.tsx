@@ -6,9 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 
-import React, { Fragment, useEffect, useState } from 'react';
 import HeadInfo from '@/components/elements/head-info';
-import ImgSection from '@/components/elements/img-section';
 import BackgroundSVG from '@/components/backgroundsvg';
 
 export default function Home() {
