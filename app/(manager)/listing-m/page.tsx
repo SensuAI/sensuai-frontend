@@ -16,15 +16,15 @@ const platesData: any = [
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },    
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },    
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },    
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },    
     { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },    
+    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
+    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
+    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
+    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
+    { plate: "FED-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
 ]
 
 export default function ListingM() {
@@ -33,13 +33,13 @@ export default function ListingM() {
         <main className="flex flex-col">
             <BackgroundSVG />
             <Heading align="center" mt="9">Clientes Identificados</Heading>
-            <ScrollArea className="h-[400px] w-[1422px] mt-6 rounded-md">
+            <ScrollArea className="max-h-[400px] mt-6 rounded-md overflow-auto">
                 <Flex justify="center" ml="4" mt="7">
                     <Flex gap="4" direction="column" justify="center">
                         <Grid columns="3" gap="3" width="auto">
-                            {platesData.map((plate:any, index:any) => (
+                            {platesData.map((plate: any, index: any) => (
                                 <Plates
-                                    key={index} // Asegúrate de proporcionar una clave única
+                                    key={index}
                                     plate={plate.plate}
                                     rowone={plate.rowone}
                                     rowtwo={plate.rowtwo}
@@ -51,14 +51,15 @@ export default function ListingM() {
                     </Flex>
                 </Flex>
             </ScrollArea>
+
             <Flex gap="4" direction="column" mt="8">
                 <Flex className="space-x-4" justify="center" >
-                    <Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+                    <Button variant="outline" size="3">
                         Ver Estadísticas Globales
                     </Button>
                     <Link
                         href={"/manager"}
-                    >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
+                    >{<Button variant="outline" size="3">
                         Página anterior
                     </Button>}
                     </Link>
