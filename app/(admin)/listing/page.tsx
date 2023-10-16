@@ -30,7 +30,6 @@ import ManagerForm from "@/components/form/ManagerForm"
 
 const data: Branch[] = [
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -42,11 +41,8 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "2" //
-
-
   },
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -58,11 +54,8 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "7" //
-
-
   },
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -74,14 +67,10 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "10" //
-
-
   },
-
 ]
 
 const dataM: Manager[] = [
-
   {
     amount: 316,
     status: "success",
@@ -91,7 +80,6 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   },
   {
     amount: 316,
@@ -102,7 +90,6 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   },
   {
     amount: 316,
@@ -113,7 +100,6 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   }
 ]
 

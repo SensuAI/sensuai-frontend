@@ -39,8 +39,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname()
     // Lista de rutas en las que se desea mostrar la NavBar.
     const headerVisibleRoutes = ['/']; 
-
-    
     const isHeaderVisible = headerVisibleRoutes.includes(pathname);
   
   return (

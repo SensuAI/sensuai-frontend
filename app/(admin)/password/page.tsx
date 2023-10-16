@@ -3,7 +3,6 @@ import * as React from "react"
 
 import { Container, Flex, Heading, Card, Box, Button, Text, TextFieldInput } from '@radix-ui/themes'
 import BackgroundSVG from "@/components/backgroundsvg"
-import { Label } from "@/components/ui/label"
 import * as Form from '@radix-ui/react-form';
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
@@ -59,7 +58,7 @@ export default function Upload() {
       </Form.Field>
       <Flex display="flex" justify="center" gap="3" mt="6">
       <Form.Submit asChild>
-        <Button size="2" variant='solid' >Subir</Button>
+        <Button size="2" variant='solid' >Cambiar contraseña</Button>
       </Form.Submit>
       </Flex>
       </Form.Root>
