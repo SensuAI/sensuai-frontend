@@ -26,7 +26,9 @@ import { Branch, columns } from "@/components/admin-branches/columns"
 import { Manager, columnsM } from "@/components/admin-managers/columns"
 import ManagerForm from "@/components/form/ManagerForm"
 
-
+import { getAllManagers } from '@/services/user-service';
+import { useToast } from "@/components/ui/use-toast"
+import { useEffect } from "react"
 
 const data: Branch[] = [
   {
@@ -104,6 +106,30 @@ const dataM: Manager[] = [
 ]
 
 export default function Listing() {
+
+  const { toast } = useToast();
+
+  const [dataManagers, setDataManagers] = React.useState([]);
+
+  async function fetchManagers() {
+    console.log("Fetching managers");
+    try {
+      const Response: any = await getAllManagers();
+      setDataManagers(Response);
+      toast({
+        description: JSON.stringify(Response, null, 2),
+      });
+    } catch (error) {
+      toast({
+        description: "Error getting managers" + error,
+        duration: 3000,
+      });
+    }
+  }
+  useEffect(() => {
+    fetchManagers();
+  }, []);
+
 
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -274,7 +300,6 @@ export default function Listing() {
             </Flex>
           </Container>
         </ScrollArea>
-
       </div>
 
       <div>
@@ -285,10 +310,10 @@ export default function Listing() {
                 <Heading align="center" mt="9" >¡Bienvenido! Selecciona una opción para continuar.</Heading>
               )}
 
-              {showFormBranch && (<BranchForm />)}
+              {showFormBranch && (<BranchForm managers={dataManagers}/>)}
               {showFormManager && (<ManagerForm />)}
               {showTableBranches && <DataTableB columns={columns} data={data} />}
-              {showTableManagers && <DataTableM columns={columnsM} data={dataM} />}
+              {showTableManagers && <DataTableM columns={columnsM} data={dataManagers} />}
             </Container>
           </ScrollArea>
         </Flex>
