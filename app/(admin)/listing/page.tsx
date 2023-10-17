@@ -117,7 +117,7 @@ export default function Listing() {
       const Response: any = await getAllManagers();
       setDataManagers(Response);
       toast({
-        description: JSON.stringify(Response, null, 2),
+        description: "Managers fetched",
       });
     } catch (error) {
       toast({
