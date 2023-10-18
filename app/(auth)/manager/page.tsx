@@ -12,12 +12,10 @@ function Manager() {
   const { userId, setUserId, data, setData } = useUserContext();
 
   useEffect(() => {
-    toast({
-      description: JSON.stringify(data, null, 2),
-      duration: 6000,
-    });
+    const user = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
   }, []);
-
+  
   return (
 
     <div className="w-full flex flex-col items-center p-10">
@@ -61,7 +59,7 @@ function Manager() {
             </Link>
 
             <Link
-              href={"/password"}
+              href={"/manager/password"}
             >{<Button size="4" variant='solid' className='w-full'>
               Cambiar contraseña
             </Button>}

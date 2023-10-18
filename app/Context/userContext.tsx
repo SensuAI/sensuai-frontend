@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, useContext, Dispatch, SetStateAction, useState } from 'react';
 
 type DataType = {
@@ -26,11 +24,12 @@ const UserContext = createContext<ContextProps>({
 export const UserProvider = ({ children }: any) => {
     const [userId, setUserId] = useState('');
     const [data, setData] = useState<DataType | null>(null);
+    console.log(data)
 
     return (
         <UserContext.Provider value={{ userId, setUserId, data, setData }}>
             {children}
-        </UserContext.Provider>
+        </UserContext.Provider> 
     );
 };
 

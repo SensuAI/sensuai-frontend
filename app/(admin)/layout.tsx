@@ -15,15 +15,14 @@ import { SecHeader } from "@/components/sec-header";
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
 interface AdminLayoutProps {
     children: ReactNode;
 }
 const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
   return (
     <div>
-      <SecHeader/>{children}</div>
+      <SecHeader/>{children}
+    </div>
   )
 };
 
