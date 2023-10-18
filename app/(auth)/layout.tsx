@@ -1,10 +1,10 @@
+'user client';
 import { FC, ReactNode } from "react";
 import { Theme, ThemePanel } from '@radix-ui/themes'
 import { Inter } from 'next/font/google'
 import Background from "@/components/backgroundsvg";
 import { SecHeader } from "@/components/sec-header";
-
-
+import { UserProvider } from "@/app/Context/userContext";
 interface AuthLayoutProps {
   children: ReactNode;
 }
@@ -20,8 +20,10 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
     //     {children}
     //     </Theme></body>
     // </html>
-    
-    <div><SecHeader/>{children}</div>
+
+    <div>
+        <SecHeader />{children}
+    </div>
   )
 };
 
