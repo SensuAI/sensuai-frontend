@@ -7,24 +7,25 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import BackgroundSVG from "@/components/backgroundsvg"
 import { Car } from "lucide-react"
 import Plates from "@/components/plates"
+import PlateInfo from "@/components/elements/plate_info"
 
 const platesData: any = [
-    { plate: "NSF-133", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "ABC-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
-    { plate: "FED-123", rowone: "Copiar placa registrada", rowtwo: "Cliente registrado" },
+    { plate: "NSF-133", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    { plate: "FED-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
 ]
 
 export default function ListingM() {
@@ -38,11 +39,12 @@ export default function ListingM() {
                     <Flex gap="4" direction="column" justify="center">
                         <Grid columns="3" gap="3" width="auto">
                             {platesData.map((plate: any, index: any) => (
-                                <Plates
+                                <PlateInfo
                                     key={index}
                                     plate={plate.plate}
-                                    rowone={plate.rowone}
-                                    rowtwo={plate.rowtwo}
+                                    username={plate.username}
+                                    promos={plate.promos}
+                                    first_time_registered={plate.first_time_registered}
                                 />
                             ))}
                         </Grid>
