@@ -7,9 +7,8 @@ import * as Form from '@radix-ui/react-form';
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster";
 
-// Context
-import { useUserContext } from "@/app/Context/userContext";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 // Services
 import { changePassword } from "@/services/authentication-service";
@@ -17,8 +16,13 @@ import { changePassword } from "@/services/authentication-service";
 export default function Upload() {
   const router = useRouter();
   const { toast } = useToast();
-  const user = localStorage.getItem("user");
-  const emailContext = user ? JSON.parse(user).email : '';
+  const [emailContext, setEmailContext] = React.useState("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const emailContext = user ? JSON.parse(user).email : '';
+    setEmailContext(emailContext);
+  }, []);
 
   async function changeOfPassword(email: string, password: string, new_password: string) {
     try {
