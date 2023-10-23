@@ -25,5 +25,5 @@ export async function getAllBranches(): Promise<any> {
         const data = await response.json();
         return data;
     });
-    return response;
+    return response.data.branches;
 }
