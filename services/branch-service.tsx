@@ -1,6 +1,5 @@
 import { API_BASE_URL } from "@/config/api-base-url";
 
-
 export async function createBranch(branch: any): Promise<boolean> {
     const response = await fetch(`${API_BASE_URL}/branch/create`, {
         method: "POST",
