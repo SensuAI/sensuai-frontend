@@ -29,6 +29,7 @@ import ManagerForm from "@/components/form/ManagerForm"
 import { getAllManagers } from '@/services/user-service';
 import { useToast } from "@/components/ui/use-toast"
 import { useEffect } from "react"
+import { getAllBranches } from "@/services/branch-service"
 
 const data: Branch[] = [
   {
@@ -110,9 +111,9 @@ export default function Listing() {
   const { toast } = useToast();
 
   const [dataManagers, setDataManagers] = React.useState([]);
+  const [dataBranches, setDataBranches] = React.useState([]);
 
   async function fetchManagers() {
-    console.log("Fetching managers");
     try {
       const Response: any = await getAllManagers();
       setDataManagers(Response);
@@ -126,8 +127,26 @@ export default function Listing() {
       });
     }
   }
+
+  async function fetchBranches() {
+    try{
+      const Response: any = await getAllBranches();
+      setDataBranches(Response);
+      toast({
+        description: "Branches fetched",
+      });
+      console.log(Response);
+    } catch (error) {
+      toast({
+        description: "Error getting branches" + error,
+        duration: 3000,
+      })
+    }
+  }
+
   useEffect(() => {
     fetchManagers();
+    fetchBranches();
   }, []);
 
 
@@ -170,7 +189,6 @@ export default function Listing() {
   const handleListBranches = () => {
     setShowTableBranches(true);
     setShowTableManagers(false);
-
     setShowFormBranch(false);
     setShowHeading(false);
     setShowFormManager(false);
@@ -312,7 +330,7 @@ export default function Listing() {
 
               {showFormBranch && (<BranchForm managers={dataManagers}/>)}
               {showFormManager && (<ManagerForm />)}
-              {showTableBranches && <DataTableB columns={columns} data={data} />}
+              {showTableBranches && <DataTableB columns={columns} data={dataBranches} />}
               {showTableManagers && <DataTableM columns={columnsM} data={dataManagers} />}
             </Container>
           </ScrollArea>
