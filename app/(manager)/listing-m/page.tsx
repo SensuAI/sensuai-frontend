@@ -10,6 +10,7 @@ import Plates from "@/components/plates"
 import PlateInfo from "@/components/elements/plate_info"
 
 const platesData: any = [
+    {plate: "R59-ADF",username: "Eduardo Bejarano", first_time_registered: "2023-10-18T22:31:44.764Z", promos: ["Promo 1", "Promo 2", "Promo 3"]},
     { plate: "NSF-133", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
     { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
     { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
