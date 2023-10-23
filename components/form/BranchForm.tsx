@@ -4,6 +4,7 @@ import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Button } fro
 import * as Form from '@radix-ui/react-form';
 import React, { Fragment, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from 'next/navigation';
 
 import {
   Select,
@@ -13,13 +14,38 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const BranchForm = (props:any) => {
+const BranchForm = (props: any) => {
+  const router = useRouter();
   const { toast } = useToast();
 
   function submitForm(data: any) {
     toast({
       description: JSON.stringify(data, null, 2)
     });
+  }
+
+  async function createBranch(branch: any) {
+    try {
+      const response: any = { status: "Success" };
+      toast({
+        description: JSON.stringify(branch, null, 2),
+        duration: 3000
+      })
+      if (response.status == "Success") {
+        toast({
+          description: "Branch created successfully",
+          duration: 1000
+        })
+        setTimeout(() => {
+          router.push("/admin/branches");
+        }, 1000);
+      }
+    } catch (error) {
+      toast({
+        description: "Error creating branch: " + error,
+        duration: 3000
+      })
+    }
   }
 
   const [serverErrors, setServerErrors] = React.useState({
@@ -87,7 +113,7 @@ const BranchForm = (props:any) => {
                 onSubmit={(event) => {
                   const data = Object.fromEntries(new FormData(event.currentTarget));
                   // Submit form data and catch errors in the response
-                  submitForm(data)
+                  createBranch(data)
                   // prevent default form submission
                   event.preventDefault();
                 }}
@@ -217,7 +243,7 @@ const BranchForm = (props:any) => {
                             <SelectValue placeholder="Nombre" />
                           </SelectTrigger>
                           <SelectContent className="max-h-40 bg-white origin-bottom">
-                            {props.managers.map((manager: { _id: string; first_name: string; last_name:string }) => (
+                            {props.managers.map((manager: { _id: string; first_name: string; last_name: string }) => (
                               <SelectItem key={manager._id} value={manager._id}>{manager.last_name}, {manager.first_name}</SelectItem>
                             ))}
                           </SelectContent>
