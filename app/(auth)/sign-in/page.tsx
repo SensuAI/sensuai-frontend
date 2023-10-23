@@ -17,9 +17,9 @@ function SignIn() {
   const { toast } = useToast();
   const { userId, setUserId, data, setData } = useUserContext();
 
-  async function submitForm(data: any) {
+  async function submitForm(dataI: any) {
     try {
-      const Response: SignInResponse = await signin(data);
+      const Response: SignInResponse = await signin(dataI);
       if (Response) {
         setUserId(Response.user._id);
         setData({
@@ -32,6 +32,9 @@ function SignIn() {
           description: "The user was found " + userId,
           duration: 3000,
         });
+            //localStorage.setItem("token", Response.token);
+        localStorage.setItem("user", JSON.stringify(Response.user));
+        localStorage.setItem("id", Response.user._id);
         if (Response.user.role == "ADMIN")
           router.push("/admin");
         else if (Response.user.role == "MANAGER")

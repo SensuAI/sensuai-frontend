@@ -37,3 +37,17 @@ export async function signin(user: any): Promise<SignInResponse> {
   });
   return response.data;
 }
+
+export async function changePassword(email: string, password: string, new_password: string): Promise<any> {
+  const response = await fetch(`${API_BASE_URL}/user/changePassword`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password, new_password}),
+  }).then(async (response) => {
+    const data = await response.json();
+    return data;
+  });
+  return response;
+}

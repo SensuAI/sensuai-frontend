@@ -1,4 +1,5 @@
 "use client"
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -44,14 +45,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en"  suppressHydrationWarning>
       <body className={inter.className}>
+        <UserProvider>
       {isHeaderVisible && <SiteHeader />}
         {/* {pathname.startsWith('/listing') && <SiteHeader />} */}
         <Theme appearance="light" accentColor="red" grayColor="mauve">
-          <UserProvider>
             {children}
-          </UserProvider>
           <Toaster />
         </Theme>
+        </UserProvider>
       </body>
     </html>
   )
