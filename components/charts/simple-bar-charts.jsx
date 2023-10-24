@@ -1,40 +1,34 @@
-'use client';
-
-import { Tooltip } from "@radix-ui/themes";
 import React from "react";
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from "recharts";
 
 const data = [
-    {name: "Lalo", age: 21, weight: 70},
-    {name: "Max", age: 30, weight: 90},
-    {name: "Gerardo", age: 11, weight: 50},
-    {name: "Victor", age: 24, weight: 85},
-    {name: "Jose", age: 38, weight: 100}];
-const SimpleBarCharts = () => {
-    return(
-     <ResponsiveContainer width="100%" aspect={2}>
-        <BarChart 
-            data={data}
-            width={500}
-            height={300}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-                }}>
-        <CartesianGrid strokeDasharray="4 1 2" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="weight" fill="#8884d8" />
-        <Bar dataKey="age" fill="#82ca9d" />
-        </BarChart>
+    { month: "Enero", visits: 1200 },
+    { month: "Febrero", visits: 1500 },
+    { month: "Marzo", visits: 1100 },
+    { month: "Abril", visits: 1800 },
+    { month: "Mayo", visits: 1300 },
+    { month: "Junio", visits: 1600 },
+    { month: "Julio", visits: 1400 },
+    { month: "Agosto", visits: 1700 },
+    { month: "Septiembre", visits: 1900 },
+    { month: "Octubre", visits: 2100 },
+    { month: "Noviembre", visits: 2000 },
+    { month: "Diciembre", visits: 2200 },
+];
 
+const VisitsBarChart = (props) => {
+    return (
+        <ResponsiveContainer width="100%" aspect={2}>
+            <BarChart data={props.inData ?? data}>
+                <CartesianGrid strokeDasharray="4 1 2" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="visits" fill="#8884d8" />
+            </BarChart>
+        </ResponsiveContainer>
+    );
+};
 
-    </ResponsiveContainer>
-    )
-    };
-
-export default SimpleBarCharts;
+export default VisitsBarChart;

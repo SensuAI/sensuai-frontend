@@ -34,14 +34,14 @@ function Manager() {
       </div>
       <Flex gap="4" direction="column">
         <Flex className="space-x-4">
-          <div className="flex-1">
+          <div>
             <Link href={"/branch-stats"}>
               <Button size="4" variant='solid' className="w-full">
-                Estadísticas Globales
+                Estadísticas globales
               </Button>
             </Link>
           </div>
-          <div className="flex-1">
+          <div>
             <Link href={"/listing-m"}>
               <Button size="4" variant='solid' className="w-full">
                 Datos capturados
@@ -51,12 +51,12 @@ function Manager() {
         </Flex>
 
         <Flex className="space-x-4" justify="center">
-            <Link
+            {/* <Link
               href={"/upload"}
             >{<Button size="4" variant='solid'>
               Cargar archivo para identificación
             </Button>}
-            </Link>
+            </Link> */}
 
             <Link
               href={"/manager/password"}
