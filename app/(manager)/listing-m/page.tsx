@@ -12,26 +12,15 @@ import PlateInfo from "@/components/elements/plate_info"
 import { getAllPlates } from "@/services/plate-service"
 import { useToast } from "@/components/ui/use-toast"
 import { useEffect } from "react"
+import { promos } from "@/services/promos-service"
 
 
 const platesData: any = [
-    {plate: "R59-ADF",username: "Eduardo Bejarano", first_time_registered: "2023-10-18T22:31:44.764Z", promos: ["Promo 1", "Promo 2", "Promo 3"]},
-    { plate: "NSF-133", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "ABC-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
-    { plate: "FED-123", username: "user1", first_time_registered: "09/09/09", promos: ["Promo 1", "Promo 2", "Promo 3"] },
+    {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 150, additional_services: 10, last_visited: "09/09/09", last_payment_method: "CreditCard", all_amounts: 3300, minutes_transaction: 10},
+    {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 30, additional_services: 10, last_visited: "12/12/22", last_payment_method: "Cash", all_amounts: 600, minutes_transaction: 10},
+    {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 300, additional_services: 10, last_visited: "21/10/23", last_payment_method: "DebitCard", all_amounts: 6000, minutes_transaction: 10},
+    {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 70, additional_services: 10, last_visited: "25/10/23", last_payment_method: "CreditCard", all_amounts: 1400, minutes_transaction: 10},
+    {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 20, additional_services: 10, last_visited: "07/09/23", last_payment_method: "CreditCard", all_amounts: 430, minutes_transaction: 10},
 ]
 
 export default function ListingM() {
@@ -77,7 +66,7 @@ export default function ListingM() {
                                     id={plate._id ? plate._id : "Id no recuperado"}
                                     plate={plate.plate ? plate.plate : "Placa no registrada"}
                                     username={plate.username ? plate.username : "No registrado"}
-                                    promos={["Descuento de 15% recargano 20L", "Entradas al cine dentro en la proxima visita", "Revisión de aceite gratis"]}
+                                    promos={promos(plate.gas_quantity, plate.additional_services, plate.last_visited, plate.last_payment_method, plate.all_amounts, plate.minutes_transaction)}
                                     first_time_registered={plate.first_time_registered ? plate.first_time_registered : "No registrado"}
                                 />
                             ))}
