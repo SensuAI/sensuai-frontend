@@ -34,9 +34,12 @@ function Admin() {
         </Card>
       </div>
       <Flex className="space-x-4">
-        <Button size="4" variant='solid'>
-          Estadísticas Globales
-        </Button>
+        <Link
+          href={"/global-stats"}
+        >{<Button size="4" variant='solid'>
+          Estadísticas globales
+        </Button>}
+        </Link>
         <Link
           href={"/listing"}
         >{<Button size="4" variant='solid'>

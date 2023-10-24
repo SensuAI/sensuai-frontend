@@ -12,3 +12,16 @@ export async function getAllPlates(): Promise<any> {
     });
     return response;
 }
+
+export async function getPlateStadistics(plate: any): Promise<any> {
+    const response = await fetch(`${API_BASE_URL}/transaction/${plate}/statistics`,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    }).then(async (response) => {
+        const data = await response.json();
+        return data;
+    });
+    return response;
+}

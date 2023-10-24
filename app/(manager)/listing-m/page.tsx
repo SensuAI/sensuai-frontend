@@ -10,10 +10,9 @@ import Plates from "@/components/plates"
 import PlateInfo from "@/components/elements/plate_info"
 
 import { getAllPlates } from "@/services/plate-service"
+
 import { useToast } from "@/components/ui/use-toast"
 import { useEffect } from "react"
-import { promos } from "@/services/promos-service"
-
 
 const platesData: any = [
     {plate: "R59-ADF",username: "Eduardo Bejarano", gas_quantity: 150, additional_services: 10, last_visited: "09/09/09", last_payment_method: "CreditCard", all_amounts: 3300, minutes_transaction: 10},
@@ -64,9 +63,8 @@ export default function ListingM() {
                                 <PlateInfo
                                     key={index}
                                     id={plate._id ? plate._id : "Id no recuperado"}
-                                    plate={plate.plate ? plate.plate : "Placa no registrada"}
+                                    plate={plate.plate ? plate.plate : "R59-ADF"}
                                     username={plate.username ? plate.username : "No registrado"}
-                                    promos={promos(plate.gas_quantity, plate.additional_services, plate.last_visited, plate.last_payment_method, plate.all_amounts, plate.minutes_transaction)}
                                     first_time_registered={plate.first_time_registered ? plate.first_time_registered : "No registrado"}
                                 />
                             ))}
