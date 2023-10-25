@@ -27,7 +27,7 @@ export function promos(gas_quantity: any, additional_services: any, last_visited
         final_array.push("Por tu preferencia recibe $100 gratis en tu próxima carga");
     }
     if ((all_amounts >= 2000) && (all_amounts <= 9999)) {
-        final_array.push("Recibe %10 de descunto en dulceria en Cinemex");
+        final_array.push("Recibe %10 de descuento en dulceria en Cinemex");
     }
     if (all_amounts >= 1000) {
         final_array.push("Recibe $10 en productos oxxo en tienda oxxo mas cercana");

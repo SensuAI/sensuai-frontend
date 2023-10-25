@@ -10,9 +10,9 @@ import {
   DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useToast } from "@/components/ui/use-toast"
-import { getPlateStadistics } from "@/services/plate-service"
-import { promos } from "@/services/promos-service"
+import { useToast } from "@/components/ui/use-toast";
+import { getPlateStadistics } from "@/services/plate-service";
+import { promos } from "@/services/promos-service";
 
 const PlateInfo = (props: any) => {
   const { toast } = useToast();
@@ -31,29 +31,36 @@ const PlateInfo = (props: any) => {
             Response.data.statistics.last_transaction_date,
             "Cash",
             Response.data.statistics.total_money_spent,
-            Response.data.statistics.mean_duration_minutes_per_transaction));
+            Response.data.statistics.mean_duration_minutes_per_transaction
+          )
+        );
         toast({
           description: "Estadisticas obtenidas",
           duration: 5000,
-        })
-        console.log(Response.data)
+        });
+        console.log(Response.data);
       } else {
         toast({
           description: "Error gettion plates",
           duration: 5000,
-        })
+        });
       }
     } catch (error) {
       toast({
         description: "Error gettion plates",
         duration: 5000,
-      })
+      });
     }
   }
   // useEffect para manejar la apertura del diálogo
   useEffect(() => {
     fetchPlateStadistics(props.plate);
   }, []);
+
+  function convertDate(propDate: any) {
+    let date: Date = new Date(propDate);
+    return date.toLocaleDateString();
+  }
 
   return (
     <Dialog>
@@ -71,18 +78,47 @@ const PlateInfo = (props: any) => {
           </Box>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[500px] max-h-[600px]" style={{ backgroundColor: "white", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <DialogContent
+        className="max-w-[500px] max-h-[600px]"
+        style={{
+          backgroundColor: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <DialogHeader>
-          <DialogTitle style={{ paddingRight: '3rem' }}>{props.plate}</DialogTitle>
+          <DialogTitle style={{ paddingRight: "3rem" }}>
+            {props.plate}
+          </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          <DialogTitle style={{ marginBottom: '0.5rem' }}>Nombre del usuario</DialogTitle>
-          <DialogDescription style={{ marginBottom: '1rem' }}>{props.username}</DialogDescription>
-          <DialogTitle style={{ marginBottom: '0.5rem' }}>Fecha de registro</DialogTitle>
-          <DialogDescription style={{ marginBottom: '1rem' }}>{props.first_time_registered}</DialogDescription>
-          <DialogTitle style={{ marginBottom: '0.5rem' }}>Posibles promociones:</DialogTitle>
+          <DialogTitle style={{ marginBottom: "0.5rem" }}>
+            Nombre del usuario
+          </DialogTitle>
+          <DialogDescription style={{ marginBottom: "1rem" }}>
+            {props.username}
+          </DialogDescription>
+          <DialogTitle style={{ marginBottom: "0.5rem" }}>
+            Fecha de registro
+          </DialogTitle>
+          <DialogDescription style={{ marginBottom: "1rem" }}>
+            {convertDate(props.first_time_registered)}
+          </DialogDescription>
+          <DialogTitle style={{ marginBottom: "0.5rem" }}>
+            Posibles promociones:
+          </DialogTitle>
           {dataPromos.map((promo: any, index: number) => (
-            <DialogDescription key={index}>
+            <DialogDescription
+              key={index}
+              style={{
+                borderRadius: "8px",
+                border: "1px solid crimson",
+                marginBottom: "0.5rem",
+                marginTop: "0.5rem",
+                padding: "0.5rem"
+              }}
+            >
               {promo}
             </DialogDescription>
           ))}
@@ -91,6 +127,5 @@ const PlateInfo = (props: any) => {
     </Dialog>
   );
 };
-
 
 export default PlateInfo;
