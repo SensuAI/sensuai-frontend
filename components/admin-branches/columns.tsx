@@ -84,12 +84,6 @@ export const columns: ColumnDef<Branch>[] = [
       cell: ({ row }) => {
         const amount = parseFloat(row.getValue("id_manager"))
   
-        // Format the amount as a dollar amount
-        const formatted = new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
-        }).format(amount)
-  
         return <div className="text-right font-medium">{row.getValue("id_manager")}</div>
       },
     },
