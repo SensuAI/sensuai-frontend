@@ -52,6 +52,7 @@ const data = [
   { amount: "400", time: "11", last_visited: "25/09/2023" },
 ];
 const BranchStatsPage = () => {
+  const [branchName, setBranchName] = React.useState("OXXO");
   return (
     <main>
       <BackgroundSVG />
@@ -84,11 +85,12 @@ const BranchStatsPage = () => {
           </Card>
         </div>
       </div> */}
+      <h1 className="text-center text-4xl text-black my-8 font-semibold">Sucursal {branchName}</h1>
       <Tabs defaultValue="monitoring" className="mx-auto max-w-screen-xl">
         <TabsList className="grid w-full grid-cols-3 gap-4">
-          <TabsTrigger value="monitoring" className="bg-gray-100 rounded-full">Monitoreo flujo</TabsTrigger>
-          <TabsTrigger value="profiles" className="bg-gray-100 rounded-full">Perfiles de usuario</TabsTrigger>
-          <TabsTrigger value="trends" className="bg-gray-100 rounded-full">Tendencias</TabsTrigger>
+          <TabsTrigger value="monitoring" className="bg-white border border-gray-300 rounded-full">Monitoreo flujo</TabsTrigger>
+          <TabsTrigger value="profiles" className="bg-white border border-gray-300 rounded-full">Perfiles de usuario</TabsTrigger>
+          <TabsTrigger value="trends" className="bg-white border border-gray-300 rounded-full">Tendencias</TabsTrigger>
         </TabsList>
         <TabsContent value="monitoring">
           <Card>
