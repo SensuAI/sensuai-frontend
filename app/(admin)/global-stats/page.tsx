@@ -3,6 +3,7 @@
 import * as React from 'react';
 import BackgroundSVG from '@/components/backgroundsvg';
 import SimpleBarCharts from '@/components/charts/simple-bar-charts';
+import CustomRectangleGraph from '@/components/charts/customized-rectangle';
 
 const data = [
     { month: "Enero", visits: 5000 },
@@ -34,6 +35,10 @@ const BranchStatsPage = () => {
                 <h2 className="text-2xl font-semibold mb-4">Visitas Históricas</h2>
                 <SimpleBarCharts
                 inData={data} />
+            </section>
+            <section className="rounded-lg p-6 shadow-md w-full md:w-2/3 lg:w-1/2">
+                <h2 className="text-2xl font-semibold mb-4">Montos mínimos y máximos de ganancias los ultimos 6 meses</h2>
+                <CustomRectangleGraph />
             </section>
         </div>
     );

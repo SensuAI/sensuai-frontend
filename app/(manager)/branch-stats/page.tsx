@@ -1,6 +1,24 @@
 "use client";
 import * as React from "react";
 import BackgroundSVG from "@/components/backgroundsvg";
+
+import { Button } from "@/components/ui/button"
+import {
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+
 import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import PaymentPieChart from "@/components/charts/pay-pie-chart";
 import HistogramBarChart from "@/components/charts/histogram_time";
@@ -37,7 +55,7 @@ const BranchStatsPage = () => {
   return (
     <main>
       <BackgroundSVG />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
         <div>
           <Card className="p-4">
             <Heading>Visitas Históricas</Heading>
@@ -65,7 +83,54 @@ const BranchStatsPage = () => {
             <BranchIncomeBarChart data={data} />
           </Card>
         </div>
-      </div>
+      </div> */}
+      <Tabs defaultValue="monitoring" className="mx-auto max-w-screen-xl">
+        <TabsList className="grid w-full grid-cols-3 gap-4">
+          <TabsTrigger value="monitoring" className="bg-gray-100 rounded-full">Monitoreo flujo</TabsTrigger>
+          <TabsTrigger value="profiles" className="bg-gray-100 rounded-full">Perfiles de usuario</TabsTrigger>
+          <TabsTrigger value="trends" className="bg-gray-100 rounded-full">Tendencias</TabsTrigger>
+        </TabsList>
+        <TabsContent value="monitoring">
+          <Card>
+            <CardHeader>
+              <CardTitle>Monitoreo flujo</CardTitle>
+              <CardDescription>
+                Realiza un seguimiento del flujo aquí.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {/* Contenido para Monitoreo flujo */}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="profiles">
+          <Card>
+            <CardHeader>
+              <CardTitle>Perfiles de usuario</CardTitle>
+              <CardDescription>
+                Realiza cambios en los perfiles de usuario aquí.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {/* Contenido para Perfiles de usuario */}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="trends">
+          <Card>
+            <CardHeader>
+              <CardTitle>Tendencias</CardTitle>
+              <CardDescription>
+                Explora las tendencias aquí.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {/* Contenido para Tendencias */}
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+
     </main>
   );
 };
