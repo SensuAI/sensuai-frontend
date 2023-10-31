@@ -19,12 +19,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import SimpleBarCharts from "@/components/charts/simple-bar-charts";
-import PaymentPieChart from "@/components/charts/pay-pie-chart";
-import HistogramBarChart from "@/components/charts/histogram_time";
-import BranchIncomeBarChart from "@/components/charts/branch_income";
-import TransactionsBarChart from "@/components/charts/transactions_charts";
 import { Card, Heading } from "@radix-ui/themes";
+import FourGraphs from "@/components/page-graphs/four_graphs";
 
 const data01: any = [
   {
@@ -101,7 +97,7 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              {/* Contenido para Monitoreo flujo */}
+              <FourGraphs data={data} data01={data01} />
             </CardContent>
           </Card>
         </TabsContent>
