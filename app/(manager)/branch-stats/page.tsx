@@ -19,38 +19,9 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import SimpleBarCharts from "@/components/charts/simple-bar-charts";
-import PaymentPieChart from "@/components/charts/pay-pie-chart";
-import HistogramBarChart from "@/components/charts/histogram_time";
-import BranchIncomeBarChart from "@/components/charts/branch_income";
-import TransactionsBarChart from "@/components/charts/transactions_charts";
 import { Card, Heading } from "@radix-ui/themes";
+import FourGraphs from "@/components/page-graphs/four_graphs";
 
-const data01: any = [
-  {
-    name: "CreditCard",
-    value: 100,
-  },
-  {
-    name: "DebitCard",
-    value: 50,
-  },
-  {
-    name: "Cash",
-    value: 90,
-  },
-];
-
-const data = [
-  { amount: "650", time: "12", last_visited: "25/10/2023" },
-  { amount: "1650", time: "1", last_visited: "21/10/2023" },
-  { amount: "1200", time: "5", last_visited: "16/10/2023" },
-  { amount: "600", time: "9", last_visited: "11/10/2023" },
-  { amount: "400", time: "12", last_visited: "6/10/2023" },
-  { amount: "500", time: "5", last_visited: "1/10/2023" },
-  { amount: "1000", time: "2", last_visited: "30/09/2023" },
-  { amount: "400", time: "11", last_visited: "25/09/2023" },
-];
 const BranchStatsPage = () => {
   const [branchName, setBranchName] = React.useState("OXXO");
   return (
@@ -101,7 +72,7 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              {/* Contenido para Monitoreo flujo */}
+              <FourGraphs />
             </CardContent>
           </Card>
         </TabsContent>
