@@ -21,6 +21,7 @@ import {
 
 import { Card, Heading } from "@radix-ui/themes";
 import FourGraphs from "@/components/page-graphs/four_graphs";
+import GraphText from "@/components/page-graphs/graph_text";
 
 const BranchStatsPage = () => {
   const [branchName, setBranchName] = React.useState("OXXO");
@@ -85,7 +86,7 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              {/* Contenido para Perfiles de usuario */}
+              <GraphText data={[["Nombre", "OXXO"], ["Dirección", "Av. 5 de Mayo 123, Centro, 76000 Santiago de Querétaro, Qro."], ["Teléfono", "442 123 4567"], ["Horario", "Lunes a Domingo de 8:00 a 20:00"]]} />
             </CardContent>
           </Card>
         </TabsContent>
