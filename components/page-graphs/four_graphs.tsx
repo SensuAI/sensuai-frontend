@@ -6,6 +6,8 @@ import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import PaymentPieChart from "@/components/charts/pay-pie-chart";
 import HistogramBarChart from "@/components/charts/histogram_time";
 import BranchIncomeBarChart from "@/components/charts/branch_income";
+import VisitsDayChart from "@/components/charts/visits_day";
+import ScatterTypeChart from "@/components/charts/scatter_type";
 
 
 const data01: any = [
@@ -62,6 +64,20 @@ const data = [
           <Card className="p-4">
             <Heading>Ganancias por semana</Heading>
             <BranchIncomeBarChart data={data} />
+          </Card>
+        </div>
+
+        <div>
+          <Card className="p-4">
+            <Heading>Visitas por hora</Heading>
+            <VisitsDayChart />
+          </Card>
+        </div>
+
+        <div>
+          <Card className="p-4">
+            <Heading>Litros vendidos y precio</Heading>
+            <ScatterTypeChart />
           </Card>
         </div>
       </div>
