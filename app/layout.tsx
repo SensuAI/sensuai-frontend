@@ -1,4 +1,5 @@
 "use client"
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -39,21 +40,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname()
     // Lista de rutas en las que se desea mostrar la NavBar.
     const headerVisibleRoutes = ['/']; 
-
-    
     const isHeaderVisible = headerVisibleRoutes.includes(pathname);
   
   return (
     <html lang="en"  suppressHydrationWarning>
       <body className={inter.className}>
+        <UserProvider>
       {isHeaderVisible && <SiteHeader />}
         {/* {pathname.startsWith('/listing') && <SiteHeader />} */}
         <Theme appearance="light" accentColor="red" grayColor="mauve">
-          <UserProvider>
             {children}
-          </UserProvider>
           <Toaster />
         </Theme>
+        </UserProvider>
       </body>
     </html>
   )

@@ -1,25 +1,21 @@
 'use client';
 import * as React from 'react';
 import { Button, Card, Link, Flex, Text, Heading } from '@radix-ui/themes';
-import { CardContent } from '@/components/ui/card';
 import BackgroundSVG from '@/components/backgroundsvg';
 import { useToast } from "@/components/ui/use-toast"
 import Image from 'next/image';
 import { useUserContext } from '@/app/Context/userContext';
 import { useEffect } from 'react';
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 function Manager() {
   const { toast } = useToast();
   const { userId, setUserId, data, setData } = useUserContext();
 
   useEffect(() => {
-    toast({
-      description: JSON.stringify(data, null, 2),
-      duration: 6000,
-    });
+    const user = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
   }, []);
-
+  
   return (
 
     <div className="w-full flex flex-col items-center p-10">
@@ -37,35 +33,37 @@ function Manager() {
         </Card>
       </div>
       <Flex gap="4" direction="column">
-      <Flex className="space-x-4">
-
-          <Link
-            href={"/branch-stats"}
-          > {<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Ver Estadísticas Globales
-          </Button>}
-          </Link> 
-          <Link
-            href={"/listing-m"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Ver datos capturados
-          </Button>}
-          </Link>
+        <Flex className="space-x-4">
+          <div>
+            <Link href={"/branch-stats"}>
+              <Button size="4" variant='solid' className="w-full">
+                Estadísticas globales
+              </Button>
+            </Link>
+          </div>
+          <div>
+            <Link href={"/listing-m"}>
+              <Button size="4" variant='solid' className="w-full">
+                Datos capturados
+              </Button>
+            </Link>
+          </div>
         </Flex>
 
         <Flex className="space-x-4" justify="center">
-          <Link
-            href={"/upload"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Cargar archivo para identificación
-          </Button>}
-          </Link>
-          <Link
-            href={"/password"}
-          >{<Button variant="classic" className="w-72 h-72 text-3xl bg-blue-500 text-white rounded-lg hover:bg-red-700">
-            Cambiar contraseña
-          </Button>}
-          </Link>
+            {/* <Link
+              href={"/upload"}
+            >{<Button size="4" variant='solid'>
+              Cargar archivo para identificación
+            </Button>}
+            </Link> */}
+
+            <Link
+              href={"/manager/password"}
+            >{<Button size="4" variant='solid' className='w-full'>
+              Cambiar contraseña
+            </Button>}
+            </Link>
         </Flex>
       </Flex>
     </div>

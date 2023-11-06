@@ -26,11 +26,13 @@ import { Branch, columns } from "@/components/admin-branches/columns"
 import { Manager, columnsM } from "@/components/admin-managers/columns"
 import ManagerForm from "@/components/form/ManagerForm"
 
-
+import { getAllManagers } from '@/services/user-service';
+import { useToast } from "@/components/ui/use-toast"
+import { useEffect } from "react"
+import { getAllBranches } from "@/services/branch-service"
 
 const data: Branch[] = [
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -42,11 +44,8 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "2" //
-
-
   },
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -58,11 +57,8 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "7" //
-
-
   },
   {
-
     amount: 316,
     status: "success",
     email: "ken99@yahoo.com",
@@ -74,14 +70,10 @@ const data: Branch[] = [
     postal_code: "03456",
     phone: "5576987398",
     id_manager: "10" //
-
-
   },
-
 ]
 
 const dataM: Manager[] = [
-
   {
     amount: 316,
     status: "success",
@@ -91,7 +83,6 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   },
   {
     amount: 316,
@@ -102,7 +93,6 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   },
   {
     amount: 316,
@@ -113,11 +103,52 @@ const dataM: Manager[] = [
     email: "ken99@yahoo.com",
     hashed_password: "jiji",
     role: "MANAGER",
-
   }
 ]
 
 export default function Listing() {
+
+  const { toast } = useToast();
+
+  const [dataManagers, setDataManagers] = React.useState([]);
+  const [dataBranches, setDataBranches] = React.useState([]);
+
+  async function fetchManagers() {
+    try {
+      const Response: any = await getAllManagers();
+      setDataManagers(Response);
+      toast({
+        description: "Managers fetched",
+      });
+    } catch (error) {
+      toast({
+        description: "Error getting managers" + error,
+        duration: 3000,
+      });
+    }
+  }
+
+  async function fetchBranches() {
+    try{
+      const Response: any = await getAllBranches();
+      setDataBranches(Response);
+      toast({
+        description: "Branches fetched",
+      });
+      console.log(Response);
+    } catch (error) {
+      toast({
+        description: "Error getting branches" + error,
+        duration: 3000,
+      })
+    }
+  }
+
+  useEffect(() => {
+    fetchManagers();
+    fetchBranches();
+  }, []);
+
 
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -158,7 +189,6 @@ export default function Listing() {
   const handleListBranches = () => {
     setShowTableBranches(true);
     setShowTableManagers(false);
-
     setShowFormBranch(false);
     setShowHeading(false);
     setShowFormManager(false);
@@ -288,7 +318,6 @@ export default function Listing() {
             </Flex>
           </Container>
         </ScrollArea>
-
       </div>
 
       <div>
@@ -299,10 +328,10 @@ export default function Listing() {
                 <Heading align="center" mt="9" >¡Bienvenido! Selecciona una opción para continuar.</Heading>
               )}
 
-              {showFormBranch && (<BranchForm />)}
+              {showFormBranch && (<BranchForm managers={dataManagers}/>)}
               {showFormManager && (<ManagerForm />)}
-              {showTableBranches && <DataTableB columns={columns} data={data} />}
-              {showTableManagers && <DataTableM columns={columnsM} data={dataM} />}
+              {showTableBranches && <DataTableB columns={columns} data={dataBranches} />}
+              {showTableManagers && <DataTableM columns={columnsM} data={dataManagers} />}
             </Container>
           </ScrollArea>
         </Flex>

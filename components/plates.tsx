@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 
-const Plates = ( props: any) => (
+const Plates = (props: any) => (
   <Box height="9">
     <Card>
       <Flex direction="row" justify="start">
@@ -35,9 +35,9 @@ const Plates = ( props: any) => (
               <DropdownMenuLabel className="text-center">
                 <Heading size="3">Información</Heading>
               </DropdownMenuLabel>
-              <DropdownMenuItem> Copiar placa registrada</DropdownMenuItem>
+              <DropdownMenuItem>{props.rowone}</DropdownMenuItem>
               <Flex justify="center" mr="1">
-                <DropdownMenuItem className="text-center">Cliente registrado</DropdownMenuItem>
+                <DropdownMenuItem className="text-center">{props.rowtwo}</DropdownMenuItem>
               </Flex>
               <DropdownMenuItem></DropdownMenuItem>
             </DropdownMenuContent>

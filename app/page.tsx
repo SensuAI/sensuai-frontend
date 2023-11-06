@@ -6,15 +6,13 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 
-import React, { Fragment, useEffect, useState } from 'react';
 import HeadInfo from '@/components/elements/head-info';
-import ImgSection from '@/components/elements/img-section';
 import BackgroundSVG from '@/components/backgroundsvg';
 
 export default function Home() {
   return (
 
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between">
       
       <BackgroundSVG />
       <ScrollArea className="h-[710px] w-[1422px] rounded-md ">
@@ -45,22 +43,16 @@ export default function Home() {
             </Flex>
             <Flex justify="center" mt="6">
               <Image
-
                 style={{
                   borderRadius: '8px',
                   border: '1px solid crimson'
                 }}
-
                 src={oxxocomb}
                 width={600}
                 height={600}
                 alt="House Example"
                 className="rounded-lg" />
-
             </Flex>
-
-
-
           </Card>
         </Flex>
       </ScrollArea>
