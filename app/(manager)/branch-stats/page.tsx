@@ -22,6 +22,9 @@ import {
 import { Card, Heading } from "@radix-ui/themes";
 import FourGraphs from "@/components/page-graphs/four_graphs";
 import GraphText from "@/components/page-graphs/graph_text";
+import LineGasChart from "@/components/charts/line_gas";
+import IncomeDayChart from "@/components/charts/income_hour";
+import AttendanceBarChart from "@/components/charts/attendance_time";
 
 const BranchStatsPage = () => {
   const [branchName, setBranchName] = React.useState("OXXO");
@@ -99,7 +102,9 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              {/* Contenido para Tendencias */}
+              <LineGasChart/>
+              <IncomeDayChart/>
+              <AttendanceBarChart/>
             </CardContent>
           </Card>
         </TabsContent>
