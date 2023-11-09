@@ -14,6 +14,10 @@ function Manager() {
   useEffect(() => {
     const user = localStorage.getItem("user");
     const id = localStorage.getItem("id");
+    toast({
+      description: "Bienvenido de vuelta " + user + "!",
+      duration: 6000,
+    });
   }, []);
   
   return (
@@ -51,12 +55,12 @@ function Manager() {
         </Flex>
 
         <Flex className="space-x-4" justify="center">
-            {/* <Link
-              href={"/upload"}
+            <Link
+              href={"/manager/register-user"}
             >{<Button size="4" variant='solid'>
-              Cargar archivo para identificación
+              Registrar un usuario
             </Button>}
-            </Link> */}
+            </Link>
 
             <Link
               href={"/manager/password"}

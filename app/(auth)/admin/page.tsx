@@ -13,8 +13,10 @@ function Admin() {
   const { userId, setUserId, data, setData } = useUserContext();
 
   useEffect(() => {
+    const user = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
     toast({
-      description: JSON.stringify(data, null, 2),
+      description: "Bienvenido de vuelta " + user + "!",
       duration: 6000,
     });
   }, []);
