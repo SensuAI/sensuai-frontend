@@ -41,13 +41,13 @@ const PlateInfo = (props: any) => {
         console.log(Response.data);
       } else {
         toast({
-          description: "Error gettion plates",
+          description: "Error getting statistics",
           duration: 5000,
         });
       }
     } catch (error) {
       toast({
-        description: "Error gettion plates",
+        description: "Error gettion statistics: " + error,
         duration: 5000,
       });
     }
