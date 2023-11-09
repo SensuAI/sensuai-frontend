@@ -16,8 +16,8 @@ const GraphText = (props: any) => {
 
   <div className="col-span-1 md:col-span-1 lg:col-span-1 h-full">
   <Card className="p-4 h-full">
-  {props.data.map((item: any) => (
-        <Card className="p-1 m-3">
+  {props.data.map((item: any, index: number) => (
+        <Card key={index} className="p-1 m-3">
           <Heading style = {{marginLeft: "0.5rem"}}>{item[0]}</Heading>
           <Text style = {{marginLeft: "0.5rem"}}>{item[1]}</Text>
         </Card>
