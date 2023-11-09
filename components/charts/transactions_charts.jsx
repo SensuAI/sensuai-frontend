@@ -1,6 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { format, parseISO, startOfWeek, endOfWeek, eachDayOfInterval } from "date-fns";
+import { format, parseISO, endOfWeek, eachDayOfInterval } from "date-fns";
 
 const TransactionsBarChart = ({data}) => {
 // Transformar las fechas a objetos Date
