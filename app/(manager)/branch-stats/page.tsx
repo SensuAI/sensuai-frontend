@@ -85,11 +85,16 @@ const BranchStatsPage = () => {
             <CardHeader>
               <CardTitle>Perfiles de usuario</CardTitle>
               <CardDescription>
-                Realiza cambios en los perfiles de usuario aquí.
+                Partiendo de la información extraida de los usuarios, estos son los perfiles que se han encontrado y la información mas relevante de cada uno.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <GraphText data={[["Nombre", "OXXO"], ["Dirección", "Av. 5 de Mayo 123, Centro, 76000 Santiago de Querétaro, Qro."], ["Teléfono", "442 123 4567"], ["Horario", "Lunes a Domingo de 8:00 a 20:00"]]} />
+              <GraphText data={[["Camiones y Tráilers",
+                "Distinguimos que son conductores profesionales, cuyo consumo de gasolina nos indica que, la mayor parte de ellos, tienen un trabajo centrado en el transporte de mercancías a larga distancia."],
+              ["Automóvil y camioneta",
+                "Automóvil principalmente para uso personal y camioneta usada ocasionalmente como transporte de carga. Preferencia de gasolina premium comparada con los demas perfiles."],
+              ["Moto",
+                "Conductor ágil y orientado al rendimiento. Uso principalmente personal enfocado en viajes cortos y tráfico urbano. Preferencia de servicios adicionales por encima de los demas usuarios."],]} />
             </CardContent>
           </Card>
         </TabsContent>
