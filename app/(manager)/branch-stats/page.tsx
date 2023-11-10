@@ -19,7 +19,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { Card, Heading } from "@radix-ui/themes";
+import { Card, Flex, Heading } from "@radix-ui/themes";
 import FourGraphs from "@/components/page-graphs/four_graphs";
 import GraphText from "@/components/page-graphs/graph_text";
 import LineGasChart from "@/components/charts/line_gas";
@@ -102,9 +102,32 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
+            <Card>
+            <CardHeader>
+              <CardTitle>Precio de gasolina a través de los meses</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <LineGasChart/>
+              </CardContent>
+            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+            <Card>
+            <CardHeader>
+              <CardTitle>Ingresos por horas del dia </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <IncomeDayChart/>
+              </CardContent>
+            </Card>
+            <Card>
+            <CardHeader>
+              <CardTitle>Tiempo promedio de transacciones por mes</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <AttendanceBarChart/>
+              </CardContent>
+            </Card>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
