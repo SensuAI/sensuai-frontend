@@ -16,7 +16,7 @@ function Admin() {
     const user = localStorage.getItem("user");
     const id = localStorage.getItem("id");
     toast({
-      description: "Bienvenido de vuelta " + user + "!",
+      description: "Bienvenido de vuelta!",
       duration: 6000,
     });
   }, []);

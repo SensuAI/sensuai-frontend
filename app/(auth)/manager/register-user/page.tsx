@@ -48,13 +48,7 @@ export default function Upload() {
   }
 
   function submitForm(data: any) {
-    if ((data) && (data.newPassword === data.repPassword)) {
-      registerUser(data.plate, data.username);
-    } else {
-      toast({ 
-        description: "Datos incorrectos. Revisa que a la que quieras registrar el usuario exista", 
-        duration: 6000 });
-    }
+    registerUser(data.plate, data.username);
   }
 
   const [serverErrors, setServerErrors] = React.useState({
