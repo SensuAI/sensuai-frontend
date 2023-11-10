@@ -40,14 +40,15 @@ const PlateInfo = (props: any) => {
         });
         console.log(Response.data);
       } else {
-        toast({
-          description: "Error getting statistics",
-          duration: 5000,
-        });
+        // toast({
+        //   description: "Error getting statistics",
+        //   duration: 5000,
+        // });
+        console.log(Response);
       }
     } catch (error) {
       toast({
-        description: "Error gettion statistics: " + error,
+        description: "Error: " + error,
         duration: 5000,
       });
     }
