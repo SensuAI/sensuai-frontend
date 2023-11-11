@@ -26,13 +26,13 @@ export async function getPlateStadistics(plate: any): Promise<any> {
     return response;
 }
 
-export async function assignUser(plate: any, user: any): Promise<any> {
+export async function assignUser(plate: any, username: any): Promise<any> {
     const response = await fetch(`${API_BASE_URL}/plate/assignUser`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ plate, user }),
+        body: JSON.stringify({ plate, username }),
     }).then(async (response) => {
         const data = await response.json();
         return data;
