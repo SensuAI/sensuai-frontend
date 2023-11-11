@@ -31,35 +31,6 @@ const BranchStatsPage = () => {
   return (
     <main>
       <BackgroundSVG />
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
-        <div>
-          <Card className="p-4">
-            <Heading>Visitas Históricas</Heading>
-            <SimpleBarCharts />
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Tipo de pago</Heading>
-            <PaymentPieChart data01={data01} />
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Tiempo de transacciones</Heading>
-            <HistogramBarChart data={data} />
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Ganancias por semana</Heading>
-            <BranchIncomeBarChart data={data} />
-          </Card>
-        </div>
-      </div> */}
       <h1 className="text-center text-4xl text-black my-8 font-semibold">Sucursal {branchName}</h1>
       <Tabs defaultValue="monitoring" className="mx-auto max-w-screen-xl">
         <TabsList className="grid w-full grid-cols-3 gap-4">
