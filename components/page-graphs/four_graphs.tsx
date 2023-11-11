@@ -25,6 +25,7 @@ const data01: any = [
   },
 ];
 
+// Tiempo de transacciones. Ganancias por semana
 const data = [
   { amount: "6500", time: "2", last_visited: "02/10/2023" },
   { amount: "7000", time: "3", last_visited: "03/10/2023" },
@@ -45,6 +46,17 @@ const data = [
   { amount: "10000", time: "6", last_visited: "27/10/2023" },
   { amount: "10000", time: "6", last_visited: "27/10/2023" },
   { amount: "5000", time: "5", last_visited: "26/10/2023" }
+];
+
+const transAndIncome = [
+  // Semana 1
+  { amount: 36000, time: 13, last_visited: "01/10/2023" },
+  // Semana 2
+  { amount: 25780, time: 8, last_visited: "08/10/2023" },
+  // Semana 3
+  { amount: 23609, time: 10, last_visited: "15/10/2023" },
+  // Semana 4
+  { amount: 35098, time: 9, last_visited: "22/10/2023" },
 ];
 
   const FourGraphs = () => {
@@ -72,7 +84,7 @@ const data = [
           <Card className="p-4">
             <Heading>Tiempo de transacciones</Heading>
             <div className="mt-4">
-            <HistogramBarChart data={data} />
+            <HistogramBarChart data={transAndIncome} />
             </div>
           </Card>
         </div>
@@ -81,7 +93,7 @@ const data = [
           <Card className="p-4">
             <Heading>Ganancias por semana</Heading>
             <div className="mt-4">
-            <BranchIncomeBarChart data={data} />
+            <BranchIncomeBarChart data={transAndIncome} />
             </div>
           </Card>
         </div>

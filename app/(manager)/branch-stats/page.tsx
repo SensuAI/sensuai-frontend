@@ -19,7 +19,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { Card, Heading } from "@radix-ui/themes";
+import { Card, Flex, Heading } from "@radix-ui/themes";
 import FourGraphs from "@/components/page-graphs/four_graphs";
 import GraphText from "@/components/page-graphs/graph_text";
 import LineGasChart from "@/components/charts/line_gas";
@@ -85,11 +85,16 @@ const BranchStatsPage = () => {
             <CardHeader>
               <CardTitle>Perfiles de usuario</CardTitle>
               <CardDescription>
-                Realiza cambios en los perfiles de usuario aquí.
+                Partiendo de la información extraida de los usuarios, estos son los perfiles que se han encontrado y la información mas relevante de cada uno.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <GraphText data={[["Nombre", "OXXO"], ["Dirección", "Av. 5 de Mayo 123, Centro, 76000 Santiago de Querétaro, Qro."], ["Teléfono", "442 123 4567"], ["Horario", "Lunes a Domingo de 8:00 a 20:00"]]} />
+              <GraphText data={[["Camiones y Tráilers",
+                "Distinguimos que son conductores profesionales, cuyo consumo de gasolina nos indica que, la mayor parte de ellos, tienen un trabajo centrado en el transporte de mercancías a larga distancia."],
+              ["Automóvil y camioneta",
+                "Automóvil principalmente para uso personal y camioneta usada ocasionalmente como transporte de carga. Preferencia de gasolina premium comparada con los demas perfiles."],
+              ["Moto",
+                "Conductor ágil y orientado al rendimiento. Uso principalmente personal enfocado en viajes cortos y tráfico urbano. Preferencia de servicios adicionales por encima de los demas usuarios."],]} />
             </CardContent>
           </Card>
         </TabsContent>
@@ -102,9 +107,32 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
+            <Card>
+            <CardHeader>
+              <CardTitle>Precio de gasolina a través de los meses</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <LineGasChart/>
+              </CardContent>
+            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+            <Card>
+            <CardHeader>
+              <CardTitle>Ingresos por horas del dia </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <IncomeDayChart/>
+              </CardContent>
+            </Card>
+            <Card>
+            <CardHeader>
+              <CardTitle>Tiempo promedio de transacciones por mes</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
               <AttendanceBarChart/>
+              </CardContent>
+            </Card>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
