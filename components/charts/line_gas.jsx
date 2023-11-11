@@ -40,7 +40,7 @@ const LineGasChart = () => {
         <Legend />
         <Line type="monotone" dataKey="Regular" stroke="#008f39" />
         <Line type="monotone" dataKey="Premium" stroke="#FF0000" />
-        <Line type="monotone" dataKey="Diesel" stroke="#FFFF00" />
+        <Line type="monotone" dataKey="Diesel" stroke="#000000" />
       </LineChart>
     </ResponsiveContainer>
   );
