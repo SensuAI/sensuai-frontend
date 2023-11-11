@@ -50,7 +50,7 @@ const formattedData = data.map((entry) => {
         <XAxis dataKey="week" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="totalAmount" fill="#fe0000" />
+        <Bar dataKey="totalAmount" fill="#d36135" />
       </BarChart>
     </ResponsiveContainer>
   );

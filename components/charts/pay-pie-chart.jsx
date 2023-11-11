@@ -1,7 +1,7 @@
 import React from "react";
 import {Cell, Label, Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+const COLORS = ["#004e89", "#429ea6", "#FFBB28"];
 const PaymentPieChart = (props) => {
     return (
       <ResponsiveContainer width="100%" aspect={2}>
