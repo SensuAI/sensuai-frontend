@@ -10,7 +10,7 @@ import VisitsDayChart from "@/components/charts/visits_day";
 import ScatterTypeChart from "@/components/charts/scatter_type";
 
 // Services
-import { typeOfPaymentCount } from "@/services/stadistics-service";
+import { typeOfPaymentCount, visitsPerHour, visitsPerMonth } from "@/services/stadistics-service";
 
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
@@ -68,14 +68,20 @@ const transAndIncome = [
 const FourGraphs = () => {
   const { toast } = useToast();
   const [dataPaymentCount, setDataPaymentCount] = useState<any>([]);
+  const [dataVisitsPerHour, setDataVisitsPerHour] = useState<any>([]);
+  const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
 
   async function fetchData() {
     try {
-      const Response: any = await typeOfPaymentCount();
+      const ResponsePayment: any = await typeOfPaymentCount();
+      const ResponseVisitsPerHour: any = await visitsPerHour();
+      const ResponseVisitsPerMonth: any = await visitsPerMonth();
       toast({
         description: "Data fetched",
       });
-      setDataPaymentCount(Response);
+      setDataPaymentCount(ResponsePayment);
+      setDataVisitsPerHour(ResponseVisitsPerHour);
+      setDataVisitsPerMonth(ResponseVisitsPerMonth);
     }
     catch (error) {
       toast({
@@ -96,7 +102,7 @@ const FourGraphs = () => {
         <Card className="p-4">
           <Heading>Visitas Históricas</Heading>
           <div className="mt-4">
-            <SimpleBarCharts />
+            <SimpleBarCharts inData={dataVisitsPerMonth}/>
           </div>
         </Card>
       </div>

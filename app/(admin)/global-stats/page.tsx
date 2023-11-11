@@ -9,13 +9,18 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, Flex, Heading } from "@radix-ui/themes";
+import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast"
+
 import FourGraphs from "@/components/page-graphs/four_graphs";
-import GraphText from "@/components/page-graphs/graph_text";
 import LineGasChart from "@/components/charts/line_gas";
 import IncomeDayChart from "@/components/charts/income_hour";
 import AttendanceBarChart from "@/components/charts/attendance_time";
 import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import CustomRectangleGraph from "@/components/charts/customized-rectangle";
+
+// Services
+import { visitsPerMonth } from "@/services/stadistics-service";
 
 const data = [
   { month: "Enero", visits: 5000 },
@@ -33,6 +38,23 @@ const data = [
 ];
 
 const BranchStatsPage = () => {
+  const { toast } = useToast();
+  const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
+
+  async function fetchData() {
+    try {
+      const ResponseVisitsPerMonth: any = await visitsPerMonth();
+      setDataVisitsPerMonth(ResponseVisitsPerMonth);
+      console.log(ResponseVisitsPerMonth);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <main>
       <BackgroundSVG />
@@ -96,7 +118,7 @@ const BranchStatsPage = () => {
               <Card className="pt-2">
                 <CardTitle className="p-4">Visitas de todas las sucursales por mes</CardTitle>
                 <CardContent className="space-y-2">
-                  <SimpleBarCharts inData={data} />
+                  <SimpleBarCharts inData={dataVisitsPerMonth} />
                 </CardContent>
               </Card>
             </Flex>
