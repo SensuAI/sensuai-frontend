@@ -25,7 +25,7 @@ const VisitsBarChart = (props) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="visits" fill="#8884d8" />
+                <Bar dataKey="visits" fill="#004e64" />
             </BarChart>
         </ResponsiveContainer>
     );
