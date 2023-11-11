@@ -23,9 +23,9 @@ export default function Upload() {
     setEmailContext(emailContext);
   }, []);
 
-  async function registerUser(plate: string, user: string) {
+  async function registerUser(plate: string, username: string) {
     try {
-      const response: any = await assignUser(plate, user);
+      const response: any = await assignUser(plate, username);
       toast({
         description: JSON.stringify(response, null, 2),
         duration: 3000

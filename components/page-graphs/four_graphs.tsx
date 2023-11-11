@@ -1,6 +1,6 @@
 import {
-    Card,
-  } from "@/components/ui/card";
+  Card,
+} from "@/components/ui/card";
 import { Heading } from "@radix-ui/themes";
 import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import PaymentPieChart from "@/components/charts/pay-pie-chart";
@@ -9,6 +9,10 @@ import BranchIncomeBarChart from "@/components/charts/branch_income";
 import VisitsDayChart from "@/components/charts/visits_day";
 import ScatterTypeChart from "@/components/charts/scatter_type";
 
+// Services
+import { typeOfPaymentCount } from "@/services/stadistics-service";
+
+import { useEffect, useState } from "react";
 
 const data01: any = [
   {
@@ -59,64 +63,83 @@ const transAndIncome = [
   { amount: 35098, time: 9, last_visited: "22/10/2023" },
 ];
 
-  const FourGraphs = () => {
-    return (
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
-        <div>
-          <Card className="p-4">
-            <Heading>Visitas Históricas</Heading>
-            <div className="mt-4">
+const FourGraphs = () => {
+  const [dataPaymentCount, setDataPaymentCount] = useState<any>([]);
+
+  async function fetchData() {
+    try {
+      const response = await typeOfPaymentCount();
+      setDataPaymentCount(response);
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+    console.log(dataPaymentCount);
+    //console.log(data01);
+  }, []);
+
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+      <div>
+        <Card className="p-4">
+          <Heading>Visitas Históricas</Heading>
+          <div className="mt-4">
             <SimpleBarCharts />
-            </div>
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Tipo de pago</Heading>
-            <div className="mt-4">
-            <PaymentPieChart data01={data01} />
-            </div>
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Tiempo de transacciones</Heading>
-            <div className="mt-4">
-            <HistogramBarChart data={transAndIncome} />
-            </div>
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Ganancias por semana</Heading>
-            <div className="mt-4">
-            <BranchIncomeBarChart data={transAndIncome} />
-            </div>
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Visitas por hora</Heading>
-            <div className="mt-4">
-            <VisitsDayChart />
-            </div>
-          </Card>
-        </div>
-
-        <div>
-          <Card className="p-4">
-            <Heading>Litros vendidos y precio</Heading>
-            <div className="mt-4">
-            <ScatterTypeChart />
-            </div>
-          </Card>
-        </div>
+          </div>
+        </Card>
       </div>
+
+      <div>
+        <Card className="p-4">
+          <Heading>Tipo de pago</Heading>
+          <div className="mt-4">
+            <PaymentPieChart data01={data01} />
+          </div>
+        </Card>
+      </div>
+
+      <div>
+        <Card className="p-4">
+          <Heading>Tiempo de transacciones</Heading>
+          <div className="mt-4">
+            <HistogramBarChart data={transAndIncome} />
+          </div>
+        </Card>
+      </div>
+
+      <div>
+        <Card className="p-4">
+          <Heading>Ganancias por semana</Heading>
+          <div className="mt-4">
+            <BranchIncomeBarChart data={transAndIncome} />
+          </div>
+        </Card>
+      </div>
+
+      <div>
+        <Card className="p-4">
+          <Heading>Visitas por hora</Heading>
+          <div className="mt-4">
+            <VisitsDayChart />
+          </div>
+        </Card>
+      </div>
+
+      <div>
+        <Card className="p-4">
+          <Heading>Litros vendidos y precio</Heading>
+          <div className="mt-4">
+            <ScatterTypeChart />
+          </div>
+        </Card>
+      </div>
+    </div>
   );
 };
-  
-  export default FourGraphs;
+
+export default FourGraphs;
