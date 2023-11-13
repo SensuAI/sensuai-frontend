@@ -51,7 +51,7 @@ const groupedData = weekStartDates.map((weekStartDate, index) => {
         <XAxis dataKey="week" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="averageTime" fill="#8884d8" />
+        <Bar dataKey="averageTime" fill="#c5283d" />
       </BarChart>
     </ResponsiveContainer>
   );

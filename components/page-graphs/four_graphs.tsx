@@ -10,22 +10,24 @@ import VisitsDayChart from "@/components/charts/visits_day";
 import ScatterTypeChart from "@/components/charts/scatter_type";
 
 // Services
-import { typeOfPaymentCount } from "@/services/stadistics-service";
+import { typeOfPaymentCount, visitsPerHour, visitsPerMonth } from "@/services/stadistics-service";
 
 import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast"
+
 
 const data01: any = [
   {
     name: "CreditCard",
-    value: 100,
+    count: 100,
   },
   {
     name: "DebitCard",
-    value: 50,
+    count: 50,
   },
   {
     name: "Cash",
-    value: 90,
+    count: 90,
   },
 ];
 
@@ -64,22 +66,33 @@ const transAndIncome = [
 ];
 
 const FourGraphs = () => {
+  const { toast } = useToast();
   const [dataPaymentCount, setDataPaymentCount] = useState<any>([]);
+  const [dataVisitsPerHour, setDataVisitsPerHour] = useState<any>([]);
+  const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
 
   async function fetchData() {
     try {
-      const response = await typeOfPaymentCount();
-      setDataPaymentCount(response);
+      const ResponsePayment: any = await typeOfPaymentCount();
+      const ResponseVisitsPerHour: any = await visitsPerHour();
+      const ResponseVisitsPerMonth: any = await visitsPerMonth();
+      toast({
+        description: "Data fetched",
+      });
+      setDataPaymentCount(ResponsePayment);
+      setDataVisitsPerHour(ResponseVisitsPerHour);
+      setDataVisitsPerMonth(ResponseVisitsPerMonth);
     }
     catch (error) {
-      console.log(error);
+      toast({
+        description: "Error fetching" + error,
+        duration: 3000,
+      });
     }
   }
 
   useEffect(() => {
     fetchData();
-    console.log(dataPaymentCount);
-    //console.log(data01);
   }, []);
 
 
@@ -89,7 +102,7 @@ const FourGraphs = () => {
         <Card className="p-4">
           <Heading>Visitas Históricas</Heading>
           <div className="mt-4">
-            <SimpleBarCharts />
+            <SimpleBarCharts inData={dataVisitsPerMonth}/>
           </div>
         </Card>
       </div>
@@ -98,7 +111,7 @@ const FourGraphs = () => {
         <Card className="p-4">
           <Heading>Tipo de pago</Heading>
           <div className="mt-4">
-            <PaymentPieChart data01={data01} />
+            <PaymentPieChart data01={dataPaymentCount} />
           </div>
         </Card>
       </div>

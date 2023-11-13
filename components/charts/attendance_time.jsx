@@ -25,7 +25,7 @@ const AttendanceBarChart = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="time" fill="#8884d8" />
+                <Bar dataKey="time" fill="#3f7081" />
             </BarChart>
         </ResponsiveContainer>
     );

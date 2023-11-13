@@ -330,9 +330,9 @@ const ScatterTypeChart = () => {
         <YAxis dataKey="y" type="number" name="precio" unit="mxn" />
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
         <Legend />
-        <Scatter name="Regular" data={data01} fill="#8884d8" />
-        <Scatter name="Premium" data={data02} fill="#82ca9d" />
-        <Scatter name="Diesel" data={data03} fill="#ff0000" />
+        <Scatter name="Regular" data={data01} fill="#008f39" />
+        <Scatter name="Premium" data={data02} fill="#c5283d" />
+        <Scatter name="Diesel" data={data03} fill="#000000" />
       </ScatterChart>
     </ResponsiveContainer>
   );

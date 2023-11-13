@@ -53,7 +53,7 @@ const VisitsDayChart = () => {
         <YAxis/>
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="visits" stroke="#8884d8" />
+        <Line type="monotone" dataKey="visits" stroke="#3f7081" />
       </LineChart>
     </ResponsiveContainer>
   );
