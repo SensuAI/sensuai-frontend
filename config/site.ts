@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "SensuAI",
+  name: "EYYE",
   description:
     "¡La plataforma favorita de Oxxo Gas!",
   secNav: [

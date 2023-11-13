@@ -12,17 +12,17 @@ import BackgroundSVG from '@/components/backgroundsvg';
 export default function Home() {
   return (
 
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-between">
       
       <BackgroundSVG />
-      <ScrollArea className="h-[710px] w-[1422px] rounded-md ">
+      <ScrollArea className="h-[715px] w-[1422px] rounded-md ">
         <Flex justify="center" mt="6" direction="row">
 
           <Image
-            src="/logogas.png"
+            src="/logoredeyye.png"
             alt="Logo oxxo"
-            width={100}
-            height={100}
+            width={250}
+            height={250}
           />
         </Flex>
 
