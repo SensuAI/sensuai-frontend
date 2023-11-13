@@ -1,5 +1,5 @@
 import {
-    Card,
+    Card, CardContent,
   } from "@/components/ui/card";
   import { Heading } from "@radix-ui/themes";
   import SimpleBarCharts from "@/components/charts/simple-bar-charts";
@@ -104,13 +104,16 @@ import {
         </div>
   
         <div>
-          <Card className="p-4">
-            <Heading>Tiempo de transacciones</Heading>
-            <div className="mt-4">
-              <HistogramBarChart data={transAndIncome} />
-            </div>
-          </Card>
-        </div>
+        <Card className="p-4">
+          <Heading>Tiempo de transacciones</Heading>
+          <CardContent className="space-y-2">
+          Tiempo promedio de la duración de las transacciones por semana
+          <div>
+            <HistogramBarChart data={transAndIncome} />
+          </div>
+          </CardContent>
+        </Card>
+      </div>
   
         <div>
           <Card className="p-4">
@@ -122,22 +125,28 @@ import {
         </div>
   
         <div>
-          <Card className="p-4">
-            <Heading>Visitas por hora</Heading>
-            <div className="mt-4">
-              <VisitsDayChart />
-            </div>
-          </Card>
-        </div>
+        <Card className="p-4">
+          <Heading>Visitas por hora</Heading>
+          <CardContent className="space-y-2">
+          Visitas por hora del día
+          <div>
+            <VisitsDayChart />
+          </div>
+          </CardContent>
+        </Card>
+      </div>
   
         <div>
-          <Card className="p-4">
-            <Heading>Litros vendidos y precio</Heading>
-            <div className="mt-4">
-              <ScatterTypeChart />
-            </div>
-          </Card>
-        </div>
+        <Card className="p-4">
+          <Heading>Litros vendidos y precio</Heading>
+          <CardContent>
+          Litros, precio y tipo de gasolina vendida por transacción
+          <div>
+            <ScatterTypeChart />
+          </div>
+          </CardContent>
+        </Card>
+      </div>
       </div>
     );
   };
