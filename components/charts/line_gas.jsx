@@ -39,7 +39,7 @@ const LineGasChart = () => {
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Regular" stroke="#008f39" />
-        <Line type="monotone" dataKey="Premium" stroke="#FF0000" />
+        <Line type="monotone" dataKey="Premium" stroke="#c5283d" />
         <Line type="monotone" dataKey="Diesel" stroke="#000000" />
       </LineChart>
     </ResponsiveContainer>

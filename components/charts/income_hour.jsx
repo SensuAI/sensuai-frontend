@@ -53,7 +53,7 @@ const IncomeDayChart = () => {
         <YAxis/>
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="income" stroke="#8884d8" />
+        <Line type="monotone" dataKey="income" stroke="#d36135" />
       </LineChart>
     </ResponsiveContainer>
   );
