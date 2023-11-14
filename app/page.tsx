@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
+import cover from ".//assets/cover.jpg"
 
 import HeadInfo from '@/components/elements/head-info';
 import BackgroundSVG from '@/components/backgroundsvg';
@@ -21,7 +22,7 @@ export default function Home() {
         <Flex justify="center" mt="6" direction="row">
 
           <Image
-            src="/logoredeyye.png"
+            src="/logoredeyyealt.png"
             alt="Logo oxxo"
             width={250}
             height={250}
@@ -30,8 +31,8 @@ export default function Home() {
 
         <Flex>
           <HeadInfo
-            title="Bienvenido a tu plataforma"
-            image={oxxosl}
+            title="Inspira lealtad"
+            image={cover}
           />
         </Flex>
 
