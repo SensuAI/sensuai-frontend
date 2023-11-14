@@ -20,7 +20,7 @@ import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import CustomRectangleGraph from "@/components/charts/customized-rectangle";
 
 // Services
-import { visitsPerMonth } from "@/services/stadistics-service";
+import { visitsPerMonth, meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
 
 const data = [
   { month: "Enero", visits: 5000 },
@@ -40,16 +40,27 @@ const data = [
 const BranchStatsPage = () => {
   const { toast } = useToast();
   const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
+  const [meanTTPerMonth, setMeanTTPerMonth] = useState<any>([]);
+  const [income, setIncome] = useState<any>([]);
 
   async function fetchData() {
-    try {
-      const ResponseVisitsPerMonth: any = await visitsPerMonth();
-      setDataVisitsPerMonth(ResponseVisitsPerMonth);
-      console.log(ResponseVisitsPerMonth);
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    const responseTransaction: any = await meanTransactionTimePerMonth();
+    const responseIncome: any = await incomePerHour();
+    const ResponseVisitsPerMonth: any = await visitsPerMonth();
+    toast({
+      description: "Data fetched",
+    });
+    setMeanTTPerMonth(responseTransaction);
+    setIncome(responseIncome);
+    setDataVisitsPerMonth(ResponseVisitsPerMonth);
+  } catch (error) {
+    toast({
+      description: "Error fetching" + error,
+      duration: 3000,
+    });
   }
+}
 
   useEffect(() => {
     fetchData();
@@ -143,10 +154,10 @@ const BranchStatsPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Ingresos por horas del dia </CardTitle>
+                    <CardTitle>Ingresos por horas del día </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <IncomeDayChart />
+                    <IncomeDayChart data={income}/>
                   </CardContent>
                 </Card>
                 <Card className="space-y-2">
