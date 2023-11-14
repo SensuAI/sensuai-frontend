@@ -39,7 +39,7 @@ const data = [
   { time: "23", income: 1000 },
 ];
 
-const IncomeDayChart = () => {
+const IncomeDayChart = ({data}) => {
   return (
     <ResponsiveContainer width="100%" aspect={2}>
       <LineChart
