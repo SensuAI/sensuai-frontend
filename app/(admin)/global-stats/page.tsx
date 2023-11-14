@@ -167,7 +167,7 @@ const BranchStatsPage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <AttendanceBarChart />
+                    <AttendanceBarChart data={meanTTPerMonth}/>
                   </CardContent>
                 </Card>
               </div>
