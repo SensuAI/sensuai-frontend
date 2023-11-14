@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from "react"
 import Link from "next/link"
 
@@ -11,11 +13,15 @@ interface MainNavProps {
 }
 
 export function MainNav({ items }: MainNavProps) {
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+
   return (
     <div className="flex flex-1 gap-6 md:gap-10 space-x-2 mt-6">
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.EYYE className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <Icons.SensuAI className="h-6 w-6"/>
+        <span className="inline-block font-bold" onClick={clearLocalStorage}>{siteConfig.name}</span>
       </Link>
       <div className="flex justify-center w-full">
       {items?.length ? (

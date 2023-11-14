@@ -26,8 +26,43 @@ import LineGasChart from "@/components/charts/line_gas";
 import IncomeDayChart from "@/components/charts/income_hour";
 import AttendanceBarChart from "@/components/charts/attendance_time";
 
+import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast"
+
+// Services 
+import { meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
+
 const BranchStatsPage = () => {
-  const [branchName, setBranchName] = React.useState("OXXO");
+  const { toast } = useToast();
+  const [branchName, setBranchName] = useState("OXXO");
+  const [meanTTPerMonth, setMeanTTPerMonth] = useState<any>([]);
+  const [income, setIncome] = useState<any>([]);
+
+  async function fetchData() {
+    try {
+      const responseTransaction: any = await meanTransactionTimePerMonth();
+      const responseIncome: any = await incomePerHour();
+      toast({
+        description: "Data fetched",
+      });
+      setMeanTTPerMonth(responseTransaction);
+      setIncome(responseIncome);
+    } catch (error) {
+      toast({
+        description: "Error fetching" + error,
+        duration: 3000,
+      });
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+    const branch = localStorage.getItem("branch");
+    if (branch) {
+      setBranchName(branch);
+    }
+  }, []);
+
   return (
     <main>
       <BackgroundSVG />
@@ -89,10 +124,10 @@ const BranchStatsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
             <Card>
             <CardHeader>
-              <CardTitle>Ingresos por horas del dia </CardTitle>
+              <CardTitle>Ingresos por horas del día </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-              <IncomeDayChart/>
+              <IncomeDayChart data={income}/>
               </CardContent>
             </Card>
             <Card>

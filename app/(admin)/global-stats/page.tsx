@@ -11,8 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
-
-import FourGraphs from "@/components/page-graphs/four_graphs";
+import FourGraphsAdmin from "@/components/page-graphs/four_graphs_admin";
+import GraphText from "@/components/page-graphs/graph_text";
 import LineGasChart from "@/components/charts/line_gas";
 import IncomeDayChart from "@/components/charts/income_hour";
 import AttendanceBarChart from "@/components/charts/attendance_time";
@@ -20,7 +20,7 @@ import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import CustomRectangleGraph from "@/components/charts/customized-rectangle";
 
 // Services
-import { visitsPerMonth } from "@/services/stadistics-service";
+import { visitsPerMonth, meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
 
 const data = [
   { month: "Enero", visits: 5000 },
@@ -40,16 +40,27 @@ const data = [
 const BranchStatsPage = () => {
   const { toast } = useToast();
   const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
+  const [meanTTPerMonth, setMeanTTPerMonth] = useState<any>([]);
+  const [income, setIncome] = useState<any>([]);
 
   async function fetchData() {
-    try {
-      const ResponseVisitsPerMonth: any = await visitsPerMonth();
-      setDataVisitsPerMonth(ResponseVisitsPerMonth);
-      console.log(ResponseVisitsPerMonth);
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    const responseTransaction: any = await meanTransactionTimePerMonth();
+    const responseIncome: any = await incomePerHour();
+    const ResponseVisitsPerMonth: any = await visitsPerMonth();
+    toast({
+      description: "Data fetched",
+    });
+    setMeanTTPerMonth(responseTransaction);
+    setIncome(responseIncome);
+    setDataVisitsPerMonth(ResponseVisitsPerMonth);
+  } catch (error) {
+    toast({
+      description: "Error fetching" + error,
+      duration: 3000,
+    });
   }
+}
 
   useEffect(() => {
     fetchData();
@@ -73,7 +84,7 @@ const BranchStatsPage = () => {
             value="profiles"
             className="bg-white border border-gray-300 rounded-full"
           >
-            Perfiles de usuario
+            Global Sucursales
           </TabsTrigger>
           <TabsTrigger
             value="trends"
@@ -91,18 +102,17 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <FourGraphs />
+              <FourGraphsAdmin />
             </CardContent>
           </Card>
         </TabsContent>
         <TabsContent value="profiles">
           <Card>
             <CardHeader>
-              <CardTitle>Perfiles de usuario</CardTitle>
+              <CardTitle>Global Sucursales</CardTitle>
               <CardDescription>
-                Partiendo de la información extraída de los usuarios, estos son
-                los perfiles que se han encontrado y la información más
-                relevante de cada uno.
+                Partiendo de la información extraída de las sucursales, esta
+                es la información más relevante en conjunto.
               </CardDescription>
             </CardHeader>
             <Flex direction="column" gap="2" p="4">
@@ -144,10 +154,10 @@ const BranchStatsPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Ingresos por horas del dia </CardTitle>
+                    <CardTitle>Ingresos por horas del día </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <IncomeDayChart />
+                    <IncomeDayChart data={income}/>
                   </CardContent>
                 </Card>
                 <Card className="space-y-2">
