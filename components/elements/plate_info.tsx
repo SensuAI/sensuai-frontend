@@ -38,13 +38,13 @@ const PlateInfo = (props: any) => {
           description: "Estadisticas obtenidas",
           duration: 5000,
         });
-        console.log(Response.data);
+        // console.log(Response.data);
       } else {
         // toast({
         //   description: "Error getting statistics",
         //   duration: 5000,
         // });
-        console.log(Response);
+        // console.log(Response);
       }
     } catch (error) {
       toast({

@@ -28,6 +28,7 @@ import AttendanceBarChart from "@/components/charts/attendance_time";
 
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
+import { useUserContext } from '@/app/Context/userContext';
 
 // Services 
 import { meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
@@ -37,6 +38,7 @@ const BranchStatsPage = () => {
   const [branchName, setBranchName] = useState("OXXO");
   const [meanTTPerMonth, setMeanTTPerMonth] = useState<any>([]);
   const [income, setIncome] = useState<any>([]);
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
   async function fetchData() {
     try {
@@ -56,12 +58,23 @@ const BranchStatsPage = () => {
   }
 
   useEffect(() => {
-    fetchData();
     const branch = localStorage.getItem("branch");
     if (branch) {
       setBranchName(branch);
     }
-  }, []);
+    const userString: any = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return;
+    }
+    if (user.role !== "MANAGER") {
+      redirectToHomePage();
+    }
+    fetchData();
+  }, [userId, toast]);
 
   return (
     <main>
@@ -113,32 +126,32 @@ const BranchStatsPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-            <Card>
-            <CardHeader>
-              <CardTitle>Precio de gasolina a través de los meses</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-              <LineGasChart/>
-              </CardContent>
-            </Card>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
-            <Card>
-            <CardHeader>
-              <CardTitle>Ingresos por horas del día </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-              <IncomeDayChart data={income}/>
-              </CardContent>
-            </Card>
-            <Card>
-            <CardHeader>
-              <CardTitle>Tiempo promedio de transacciones por mes</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-              <AttendanceBarChart data={meanTTPerMonth}/>
-              </CardContent>
-            </Card>
-            </div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Precio de gasolina a través de los meses</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <LineGasChart />
+                </CardContent>
+              </Card>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Ingresos por horas del día </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <IncomeDayChart data={income} />
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Tiempo promedio de transacciones por mes</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <AttendanceBarChart data={meanTTPerMonth} />
+                  </CardContent>
+                </Card>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

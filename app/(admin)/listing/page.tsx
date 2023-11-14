@@ -30,6 +30,7 @@ import { getAllManagers } from '@/services/user-service';
 import { useToast } from "@/components/ui/use-toast"
 import { useEffect } from "react"
 import { getAllBranches } from "@/services/branch-service"
+import { useUserContext } from '@/app/Context/userContext';
 
 const data: Branch[] = [
   {
@@ -107,11 +108,10 @@ const dataM: Manager[] = [
 ]
 
 export default function Listing() {
-
   const { toast } = useToast();
-
   const [dataManagers, setDataManagers] = React.useState([]);
   const [dataBranches, setDataBranches] = React.useState([]);
+  const { userId, setUserId, setData, redirectToHomePage } = useUserContext();
 
   async function fetchManagers() {
     try {
@@ -145,9 +145,25 @@ export default function Listing() {
   }
 
   useEffect(() => {
+    const userString: any = localStorage.getItem("user");
+    const id: any = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return; 
+    }
+    if (user.role !== "ADMIN") {
+      redirectToHomePage();
+    } else {
+      toast({
+        description: "Bienvenido de vuelta!",
+        duration: 6000,
+      });
+    }
     fetchManagers();
     fetchBranches();
-  }, []);
+  }, [userId, toast]);
 
 
   const [sorting, setSorting] = React.useState<SortingState>([])
@@ -222,17 +238,11 @@ export default function Listing() {
   return (
     <main className="flex p-4">
       <BackgroundSVG />
-
       <div>
-
         <ScrollArea className="h-[680px] w-[350px] ">
-
           <Container size="1">
-
-
             <Flex gap="4" direction="column">
               <Link asChild>
-
                 <Button asChild size="4" onClick={handleListBranches}>
                   <Card style={{ height: 150, width: 350 }}>
 
@@ -252,12 +262,9 @@ export default function Listing() {
                   </Card>
                 </Button>
               </Link>
-
               <Link>
-
                 <Button asChild size="4" color="cyan" onClick={handleListManagers}>
                   <Card style={{ height: 150, width: 350 }}>
-
                     <Flex width="100%" gap="4" direction="column" >
                       <Flex display="flex" justify="start">
                         <PersonIcon className="flex mt-1"/>
@@ -266,7 +273,6 @@ export default function Listing() {
                       <Flex justify="center">
                         <Badge color="blue">Filtrar por email</Badge>
                         {/* <Badge color="orange">Eliminar Gerentes</Badge> */}
-
                       </Flex>
                       <Flex justify="center">
                       <Text size="1" align="center">
@@ -277,7 +283,6 @@ export default function Listing() {
                   </Card>
                 </Button>
               </Link>
-
               <Link>
                 <Button asChild size="4" onClick={handleFormBranch}>
                   <Card style={{ height: 125, width: 350 }}>
@@ -296,11 +301,9 @@ export default function Listing() {
                   </Card>
                 </Button>
               </Link>
-
               <Link>
                 <Button asChild size="4" color="cyan" onClick={handleFormManager}>
                   <Card style={{ height: 125, width: 350 }}>
-
                     <Flex width="100%" gap="4" direction="column">
                       <Flex display="flex" justify="center">
                         <PersonIcon className="flex mt-1"/>
@@ -327,7 +330,6 @@ export default function Listing() {
               {showHeading && (
                 <Heading align="center" mt="9" >¡Bienvenido! Selecciona una opción para continuar.</Heading>
               )}
-
               {showFormBranch && (<BranchForm managers={dataManagers}/>)}
               {showFormManager && (<ManagerForm />)}
               {showTableBranches && <DataTableB columns={columns} data={dataBranches} />}
