@@ -7,19 +7,31 @@ import { useToast } from "@/components/ui/use-toast"
 import Image from 'next/image';
 import { useUserContext } from '@/app/Context/userContext';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Toaster } from "@/components/ui/toaster";
 
 function Admin() {
   const { toast } = useToast();
-  const { userId, setUserId, data, setData } = useUserContext();
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    const id = localStorage.getItem("id");
-    toast({
-      description: "Bienvenido de vuelta!",
-      duration: 6000,
-    });
-  }, []);
+    const userString: any = localStorage.getItem("user");
+    const id: any = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return; 
+    }
+    if (user.role !== "ADMIN") {
+      redirectToHomePage();
+    } else {
+      toast({
+        description: "Bienvenido de vuelta!",
+        duration: 6000,
+      });
+    }
+  }, [userId, toast]);
 
   return (
     <div className="min-h-screen flex flex-col items-center p-12">
@@ -49,6 +61,7 @@ function Admin() {
         </Button>}
         </Link>
       </Flex>
+      <Toaster />
     </div>
   )
 }

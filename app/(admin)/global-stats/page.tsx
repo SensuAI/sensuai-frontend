@@ -18,6 +18,7 @@ import IncomeDayChart from "@/components/charts/income_hour";
 import AttendanceBarChart from "@/components/charts/attendance_time";
 import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import CustomRectangleGraph from "@/components/charts/customized-rectangle";
+import { useUserContext } from '@/app/Context/userContext';
 
 // Services
 import { visitsPerMonth, meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
@@ -42,6 +43,8 @@ const BranchStatsPage = () => {
   const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
   const [meanTTPerMonth, setMeanTTPerMonth] = useState<any>([]);
   const [income, setIncome] = useState<any>([]);
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
+
 
   async function fetchData() {
   try {
@@ -63,8 +66,24 @@ const BranchStatsPage = () => {
 }
 
   useEffect(() => {
+    const userString: any = localStorage.getItem("user");
+    const id: any = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return; 
+    }
+    if (user.role !== "ADMIN") {
+      redirectToHomePage();
+    } else {
+      toast({
+        description: "Bienvenido de vuelta!",
+        duration: 6000,
+      });
+    }
     fetchData();
-  }, []);
+  }, [userId, toast]);
 
   return (
     <main>

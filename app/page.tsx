@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import { Card, Flex, Heading, Text, Strong } from '@radix-ui/themes'
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Toaster } from "@/components/ui/toaster";
+
 
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
@@ -57,8 +59,7 @@ export default function Home() {
           </Card>
         </Flex>
       </ScrollArea>
-
-      
+      <Toaster />
     </main>
   )
 }

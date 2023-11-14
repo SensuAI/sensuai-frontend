@@ -10,18 +10,31 @@ import { Toaster } from "@/components/ui/toaster";
 import { useRouter } from 'next/navigation';
 import { useEffect } from "react";
 
+import { useUserContext } from '@/app/Context/userContext';
 import { assignUser } from "@/services/plate-service";
 
 export default function Upload() {
   const router = useRouter();
   const { toast } = useToast();
   const [emailContext, setEmailContext] = React.useState("");
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    const emailContext = user ? JSON.parse(user).email : '';
+    const userString: any = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+    const emailContext = userString ? JSON.parse(userString).email : '';
+
+
+    if (!userString) {
+      redirectToHomePage();
+      return;
+    }
+    if (user.role !== "MANAGER") {
+      redirectToHomePage();
+    } 
     setEmailContext(emailContext);
-  }, []);
+  }, [userId, toast]);
 
   async function registerUser(plate: string, username: string) {
     try {
@@ -37,7 +50,7 @@ export default function Upload() {
         })
         setTimeout(() => {
           router.push("/manager");
-        }, 1000); 
+        }, 1000);
       }
     } catch (error) {
       toast({

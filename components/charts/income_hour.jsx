@@ -12,7 +12,7 @@ import {
   Line,
 } from "recharts";
 
-const data = [
+const data_local = [
   { time: "0", income: 2000 },
   { time: "1", income: 1000 },
   { time: "2", income: 2000 },
@@ -45,7 +45,7 @@ const IncomeDayChart = ({data}) => {
       <LineChart
         width={730}
         height={250}
-        data={data}
+        data={data_local}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
