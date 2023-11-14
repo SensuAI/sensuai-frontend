@@ -2,26 +2,39 @@
 
 import React from "react";
 import Image from "next/image";
-import { Text, Heading, Flex, Strong } from '@radix-ui/themes'
+import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/themes'
+import { ArrowRightIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons'
+
 
 const HeadInfo = (props: any) => {
   return (
     <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
-      <Flex className="flex mr-8 ml-12" justify="center">
+      <Flex className="flex mr-8 ml-8" justify="center">
         {/* Mitad Izquierda*/}
-        <div className=" p-6 w-1/2 rounded-lg">
-          <Heading highContrast color="sky" size="8" className="font-bold text-center pb-6">{props.title}</Heading>
+        <Grid   className=" grid content-start p-6 w-1/2 mt-14">
+          <Heading highContrast color="sky" size="9"  align="center" className="font-bold pb-6">{props.title}</Heading>
           <Flex justify="center" width="100%">
-            <Text highContrast color="sky" size="5" align="center" mt="4">Aquí podrás encontrar más información acerca de los <Strong>clientes</Strong> que visitan tus sucursales así como diferentes sugerencias de <Strong>promociones que puedes ofrecer.</Strong></Text>
+            <Text highContrast color="sky" size="5" mt="4">Aquí podrás encontrar más información acerca de los <Strong>clientes</Strong> que visitan tus sucursales, así como algunas <Strong>promociones a ofrecer.</Strong></Text>
           </Flex>
-        </div>
+          <Flex mt="6" justify="center">
+          <Link href={"/sign-in"}>
+              <Button size="4" variant='solid' className="w-full">
+                Acceder a estadísticas
+                <DoubleArrowRightIcon/>
+              </Button>
+            </Link>
+            </Flex>
+        </Grid>
         {/* Mitad Derecha*/}
-        <div className="w-1/3 flex justify-center items-center mr-10">
+        <div className="w-1/3 flex items-center ml-16">
+          
           <Image
+          
 
             style={{
               borderRadius: '8px',
-              border: '1px solid crimson'
+              border: '1px solid crimson',
+              marginLeft:'8'
             }}
 
             src={props.image}

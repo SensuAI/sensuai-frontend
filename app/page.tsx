@@ -5,6 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
+import cover from ".//assets/cover.jpg"
 
 import HeadInfo from '@/components/elements/head-info';
 import BackgroundSVG from '@/components/backgroundsvg';
@@ -19,7 +20,7 @@ export default function Home() {
         <Flex justify="center" mt="6" direction="row">
 
           <Image
-            src="/logoredeyye.png"
+            src="/logoredeyyealt.png"
             alt="Logo oxxo"
             width={250}
             height={250}
@@ -28,8 +29,8 @@ export default function Home() {
 
         <Flex>
           <HeadInfo
-            title="Bienvenido a tu plataforma"
-            image={oxxosl}
+            title="Inspira lealtad"
+            image={cover}
           />
         </Flex>
 
@@ -57,76 +58,7 @@ export default function Home() {
         </Flex>
       </ScrollArea>
 
-      {/* 
-      <Container size="1">
-        <Flex direction="column" pb="4">
-          <Heading align="center" mb="4">OXXO GAS Tultitlán</Heading>
-          <Text align="center"> Aquí puedes ver la información registrada por las cámaras</Text>
-        </Flex>
-
-        <Flex gap="4" direction="column">
-
-          <Card>
-            <Flex gap="4" direction="column">
-              <Text>PAY-344 - Jorge Isidro Negrete Martínez</Text>
-              <Flex gap="2">
-                <Badge color="blue">Cliente registrado</Badge>
-                <Badge color="blue">SPIN CARD</Badge>
-              </Flex>
-              <Text>
-                Promociones disponibles.
-              </Text>
-              <Flex justify="between" pt="1">
-                <Flex align="center">
-                  <ChatBubbleIcon />
-                  <Text color="gray" ml="2" size="1">3 Comments</Text>
-                </Flex>
-              </Flex>
-            </Flex>
-          </Card>
-
-          <Card>
-
-
-            <Flex gap="4" direction="column">
-              <Text>NTZ-345</Text>
-              <Flex gap="2">
-                <Badge color="orange">Cliente no registrado</Badge>
-                <Badge color="orange">Sin SPIN CARD.</Badge>
-              </Flex>
-              <Text>
-                Ofrecer unirse a SPIN CARD.
-              </Text>
-              <Flex justify="between" pt="1">
-                <Flex align="center">
-                  <ChatBubbleIcon />
-                  <Text color="gray" ml="2" size="1">3 Comments</Text>
-                </Flex>
-              </Flex>
-            </Flex>
-          </Card>
-
-          <Card>
-            <Flex gap="4" direction="column">
-              <Text>MTA-435</Text>
-              <Flex gap="2">
-                <Badge color="orange">Cliente no registrado</Badge>
-                <Badge color="orange">Sin SPIN CARD</Badge>
-              </Flex>
-              <Text>
-                No ofrecer unirse a SPIN CARD.
-              </Text>
-              <Flex justify="between" pt="1">
-                <Flex align="center">
-                  <ChatBubbleIcon />
-                  <Text color="gray" ml="2" size="1">3 Comments</Text>
-                </Flex>
-              </Flex>
-            </Flex>
-          </Card>
-        </Flex>
-      </Container>
-      */}
+      
     </main>
   )
 }
