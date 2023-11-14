@@ -16,7 +16,7 @@ const data = [
     { month: "Diciembre", time: 2.9 },
 ];
 
-const AttendanceBarChart = () => {
+const AttendanceBarChart = ({data}) => {
     return (
         <ResponsiveContainer width="100%" aspect={2}>
             <BarChart data={data}>

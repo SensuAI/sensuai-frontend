@@ -135,7 +135,7 @@ const BranchStatsPage = () => {
               <CardTitle>Tiempo promedio de transacciones por mes</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-              <AttendanceBarChart/>
+              <AttendanceBarChart data={meanTTPerMonth}/>
               </CardContent>
             </Card>
             </div>
