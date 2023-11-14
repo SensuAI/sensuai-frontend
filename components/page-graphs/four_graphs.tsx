@@ -1,5 +1,5 @@
 import {
-  Card,
+  Card, CardContent,
 } from "@/components/ui/card";
 import { Heading } from "@radix-ui/themes";
 import SimpleBarCharts from "@/components/charts/simple-bar-charts";
@@ -119,36 +119,47 @@ const FourGraphs = () => {
       <div>
         <Card className="p-4">
           <Heading>Tiempo de transacciones</Heading>
-          <div className="mt-4">
+          <CardContent className="space-y-2">
+          Tiempo promedio de la duración de las transacciones por semana
+          <div>
             <HistogramBarChart data={transAndIncome} />
           </div>
+          </CardContent>
         </Card>
       </div>
 
       <div>
         <Card className="p-4">
           <Heading>Ganancias por semana</Heading>
+          <CardContent className="space-y-2">
           <div className="mt-4">
             <BranchIncomeBarChart data={transAndIncome} />
           </div>
+          </CardContent>
         </Card>
       </div>
 
       <div>
         <Card className="p-4">
           <Heading>Visitas por hora</Heading>
-          <div className="mt-4">
+          <CardContent className="space-y-2">
+          Visitas por hora del día
+          <div>
             <VisitsDayChart />
           </div>
+          </CardContent>
         </Card>
       </div>
 
       <div>
         <Card className="p-4">
           <Heading>Litros vendidos y precio</Heading>
-          <div className="mt-4">
+          <CardContent>
+          Litros, precio y tipo de gasolina vendida por transacción
+          <div>
             <ScatterTypeChart />
           </div>
+          </CardContent>
         </Card>
       </div>
     </div>
