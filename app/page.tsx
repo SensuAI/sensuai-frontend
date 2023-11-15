@@ -5,12 +5,15 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Toaster } from "@/components/ui/toaster";
 
 
+
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 import cover from ".//assets/cover.jpg"
+import graphs from ".//assets/graphs.png"
 
 import HeadInfo from '@/components/elements/head-info';
 import BackgroundSVG from '@/components/backgroundsvg';
+import GraphsInfo from '@/components/elements/graphs-info';
 
 export default function Home() {
   return (
@@ -36,8 +39,24 @@ export default function Home() {
           />
         </Flex>
 
+        <Flex justify="center" mt="8">
+          <Card variant='ghost' style={{ height: 75, width: 1422 }}>
+            <Flex justify="center" >
+              <Heading highContrast color="sky" size="8">Datos precisos fomentan buenas decisiones</Heading>
+            </Flex>    
+          </Card>
+        </Flex>
+
+        <Flex justify="center"  direction="row">
+        <GraphsInfo
+            title=""
+            image={graphs}
+          />
+
+        </Flex>  
+
         <Flex justify="center" mt="4">
-          <Card variant='classic' style={{ height: 500, width: 1050 }}>
+          <Card variant='ghost' style={{ height: 500, width: 1050 }}>
             <Flex justify="center" mt="4">
               <Heading highContrast color="sky" size="8">¿Cómo funciona?</Heading>
             </Flex>
@@ -56,8 +75,10 @@ export default function Home() {
                 alt="House Example"
                 className="rounded-lg" />
             </Flex>
+            
           </Card>
         </Flex>
+        
       </ScrollArea>
       <Toaster />
     </main>

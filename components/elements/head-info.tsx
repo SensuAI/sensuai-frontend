@@ -6,6 +6,7 @@ import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/theme
 import { ArrowRightIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons'
 
 
+
 const HeadInfo = (props: any) => {
   return (
     <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
