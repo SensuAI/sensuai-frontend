@@ -17,15 +17,15 @@ import {
   const data01: any = [
     {
       name: "CreditCard",
-      value: 100,
+      count: 2350,
     },
     {
       name: "DebitCard",
-      value: 50,
+      count: 1150,
     },
     {
       name: "Cash",
-      value: 90,
+      count: 2139,
     },
   ];
   

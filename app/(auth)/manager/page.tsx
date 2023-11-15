@@ -9,17 +9,27 @@ import { useEffect } from 'react';
 
 function Manager() {
   const { toast } = useToast();
-  const { userId, setUserId, data, setData } = useUserContext();
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
+    const userString: any = localStorage.getItem("user");
     const id = localStorage.getItem("id");
-    toast({
-      description: "Bienvenido de vuelta!",
-      duration: 6000,
-    });
-  }, []);
-  
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return;
+    }
+    if (user.role !== "MANAGER") {
+      redirectToHomePage();
+    } else {
+      toast({
+        description: "Bienvenido de vuelta!",
+        duration: 6000,
+      });
+    }
+  }, [userId, toast]);
+
   return (
 
     <div className="w-full flex flex-col items-center p-10">
@@ -55,19 +65,19 @@ function Manager() {
         </Flex>
 
         <Flex className="space-x-4" justify="center">
-            <Link
-              href={"/manager/register-user"}
-            >{<Button size="4" variant='solid'>
-              Registrar un usuario
-            </Button>}
-            </Link>
+          <Link
+            href={"/manager/register-user"}
+          >{<Button size="4" variant='solid'>
+            Registrar un usuario
+          </Button>}
+          </Link>
 
-            <Link
-              href={"/manager/password"}
-            >{<Button size="4" variant='solid' className='w-full'>
-              Cambiar contraseña
-            </Button>}
-            </Link>
+          <Link
+            href={"/manager/password"}
+          >{<Button size="4" variant='solid' className='w-full'>
+            Cambiar contraseña
+          </Button>}
+          </Link>
         </Flex>
       </Flex>
     </div>

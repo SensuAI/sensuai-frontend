@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import { useRouter } from 'next/navigation';
 import { useEffect } from "react";
+import { useUserContext } from '@/app/Context/userContext';
 
 // Services
 import { changePassword } from "@/services/authentication-service";
@@ -17,12 +18,23 @@ export default function Upload() {
   const router = useRouter();
   const { toast } = useToast();
   const [emailContext, setEmailContext] = React.useState("");
+  const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    const emailContext = user ? JSON.parse(user).email : '';
+    const userString: any = localStorage.getItem("user");
+    const emailContext = userString ? JSON.parse(userString).email : '';
     setEmailContext(emailContext);
-  }, []);
+    const id = localStorage.getItem("id");
+    const user = JSON.parse(userString);
+
+    if (!userString) {
+      redirectToHomePage();
+      return;
+    }
+    if (user.role !== "MANAGER") {
+      redirectToHomePage();
+    }
+  }, [userId, toast]);
 
   async function changeOfPassword(email: string, password: string, new_password: string) {
     try {
@@ -38,7 +50,7 @@ export default function Upload() {
         })
         setTimeout(() => {
           router.push("/manager");
-        }, 1000); 
+        }, 1000);
       }
     } catch (error) {
       toast({
@@ -52,9 +64,10 @@ export default function Upload() {
     if ((data) && (data.newPassword === data.repPassword)) {
       changeOfPassword(emailContext, data.password, data.newPassword);
     } else {
-      toast({ 
-        description: "Datos incorrectos. Revisa que tu contraseña sea correcta y que hayas repetido correctamente tu nueva contraseña", 
-        duration: 6000 });
+      toast({
+        description: "Datos incorrectos. Revisa que tu contraseña sea correcta y que hayas repetido correctamente tu nueva contraseña",
+        duration: 6000
+      });
     }
   }
 
