@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/themes'
-import { EyeOpenIcon } from '@radix-ui/react-icons/'
+import { EyeOpenIcon, LightningBoltIcon, TargetIcon } from '@radix-ui/react-icons/'
 
 
 const GraphsInfo = (props: any) => {
@@ -37,12 +37,13 @@ const GraphsInfo = (props: any) => {
                     <Heading highContrast color="sky" size="6" align="center" className="font-bold pb-6">Identifica a tus clientes</Heading>
                     <Flex align="center" justify="center" width="100%">
 
-                        <Text highContrast color="sky" size="5" >Aquí podrás encontrar más información acerca de los <Strong>clientes</Strong> que visitan tus sucursales, así como algunas <Strong>promociones a ofrecer.</Strong></Text>
+                        <Text highContrast color="sky" size="5" >Ponemos a tu total disposición una serie de <Strong>modelos robustos</Strong>  que se encargan de distinguir <Strong>clientes nuevos</Strong>  y <Strong>clientes recurrentes</Strong>. </Text>
                     </Flex>
 
-                    <EyeOpenIcon style={{
+                    <TargetIcon style={{
                         borderRadius: '8px',
                         marginTop:"30",
+                        marginBottom:"8",
                         marginLeft: '275',
                         height: "45",
                         width: "45",
@@ -52,12 +53,13 @@ const GraphsInfo = (props: any) => {
                     <Heading highContrast color="sky" size="6" align="center" className="font-bold pb-6">Observa gráficos detallados</Heading>
                     <Flex align="center" justify="center" width="100%">
 
-                        <Text highContrast color="sky" size="5" >Aquí podrás encontrar más información acerca de los <Strong>clientes</Strong> que visitan tus sucursales, así como algunas <Strong>promociones a ofrecer.</Strong></Text>
+                        <Text highContrast color="sky" size="5" > Te mantenemos al tanto del <Strong>desempeño de todas tus sucursales</Strong>  mediante una variedad de <Strong>gráficos</Strong> con datos <Strong>relevantes</Strong> para ti.</Text>
                     </Flex>
 
-                    <EyeOpenIcon style={{
+                    <LightningBoltIcon style={{
                         borderRadius: '8px',
                         marginTop:"30",
+                        marginBottom:"8",
                         marginLeft: '275',
                         height: "45",
                         width: "45",
@@ -67,7 +69,7 @@ const GraphsInfo = (props: any) => {
                     <Heading highContrast color="sky" size="6" align="center" className="font-bold pb-6">Genera promociones personalizadas</Heading>
                     <Flex align="center" justify="center" width="100%">
 
-                        <Text highContrast color="sky" size="5" >Aquí podrás encontrar más información acerca de los <Strong>clientes</Strong> que visitan tus sucursales, así como algunas <Strong>promociones a ofrecer.</Strong></Text>
+                        <Text highContrast color="sky" size="5" >Premia la <Strong>lealtad de tus clientes</Strong>  haciéndoles llegar <Strong>descuentos y promociones a su medida</Strong>  a usarse en todas las sucursales <Strong>OXXO</Strong>.</Text>
                     </Flex>
 
                 </Grid>
