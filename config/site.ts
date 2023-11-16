@@ -21,13 +21,13 @@ export const siteConfig = {
     },
     {
       title: "Sobre nosotros",
-      href: "/",
+      href: "/about_us",
     },
   ],
 
 
   links: {
-    twitter: "https://twitter.com/solisolsoli",
+    twitter: "https://www.instagram.com/eduardo_corval/",
     github: "https://github.com/SensuAI",
     docs: "https://ui.shadcn.com",
   },
