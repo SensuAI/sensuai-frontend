@@ -9,7 +9,10 @@ import { Toaster } from "@/components/ui/toaster";
 import oxxosl from ".//assets/oxxosl.jpg";
 import oxxocomb from ".//assets/oxxocomb.jpg";
 import cover from ".//assets/cover.jpg"
+import finalcover from ".//assets/finalcover4.png"
 import graphs from ".//assets/graphsalt.png"
+import lupa from ".//assets/lupa.png"
+import admingraph from ".//assets/admingraph.png"
 
 import HeadInfo from '@/components/elements/head-info';
 import BackgroundSVG from '@/components/backgroundsvg';
@@ -31,7 +34,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { DesktopIcon } from '@radix-ui/react-icons/'
+import { DesktopIcon, BarChartIcon } from '@radix-ui/react-icons/'
+import UserInfo from '@/components/elements/user-info';
 
 
 export default function Home() {
@@ -54,7 +58,7 @@ export default function Home() {
         <Flex>
           <HeadInfo
             title="Inspira lealtad"
-            image={cover}
+            image={finalcover}
           />
         </Flex>
 
@@ -76,41 +80,40 @@ export default function Home() {
 
 
         <Flex justify="center" mt="4">
-          <Card variant='classic' style={{ height: 500, width: 1200 }}>
+          <Card variant='ghost' style={{ height: 500, width: 1200 }}>
             <Flex justify="center" mt="4" mb="6">
-              <Heading highContrast color="sky" size="8">Facilitando la obtención de KPIs para nuestros usuarios</Heading>
+              <Heading highContrast color="sky" size="8">Facilitando la obtención de KPIs para todos nuestros usuarios</Heading>
             </Flex>
 
-            <Tabs defaultValue="monitoring" >
+            <Tabs defaultValue="admins" >
               <Flex justify="center">
-              <TabsList className="grid w-1/2 grid-cols-2 gap-4 justify-center">
-                <TabsTrigger value="admins" className="bg-white border border-gray-300 rounded-full">Administradores</TabsTrigger>
-                <TabsTrigger value="managers" className="bg-white border border-gray-300 rounded-full">Gerentes</TabsTrigger>
+                <TabsList className="grid w-1/2 grid-cols-2 gap-4 justify-center">
+                  <TabsTrigger value="admins" className="bg-white border border-gray-300 rounded-full">Administradores</TabsTrigger>
+                  <TabsTrigger value="managers" className="bg-white border border-gray-300 rounded-full">Gerentes</TabsTrigger>
 
-              </TabsList>
+                </TabsList>
               </Flex>
               <TabsContent value="admins">
-                <Flex direction="column">
-                <Card mt="4">
-                  <CardHeader>
-                    <CardTitle> - Infórmate constantemente sobre el rendimiento global de tus sucursales </CardTitle>
-                  </CardHeader>
-                  
-                </Card>
+                <Flex>
+                  <UserInfo
+                    title="Toda la información en un sólo lugar"
+                    image={admingraph}
+                    b1="Registra, elimina y coordina a tus Gerentes."
+                    b2="Optimiza la administración con enfoques avanzados."
+                    b3="Nuestros modelos despliegan la información para ti."
+                  />
                 </Flex>
               </TabsContent>
               <TabsContent value="managers">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Perfiles de usuario</CardTitle>
-                    <CardDescription>
-                      Partiendo de la información extraida de los usuarios, estos son los perfiles que se han encontrado y la información mas relevante de cada uno.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                   
-                  </CardContent>
-                </Card>
+              <Flex>
+                  <UserInfo
+                    title="Optimiza y moderniza tu sucursal"
+                    image={lupa}
+                    b1="Genera promociones de manera automática."
+                    b2="Implementa tecnologías de vanguardia."
+                    b3="Mejora exponencialmente la gestión."
+                  />
+                </Flex>
               </TabsContent>
 
             </Tabs>
@@ -118,29 +121,7 @@ export default function Home() {
           </Card>
         </Flex>
 
-        <Flex justify="center" mt="4">
-          <Card variant='classic' style={{ height: 500, width: 1200 }}>
-            <Flex justify="center" mt="4">
-              <Heading highContrast color="sky" size="8">¿Cómo funciona?</Heading>
-            </Flex>
-            <Flex gap="4" justify="center" mt="5" px="9" width="auto" mr="9" ml="9" direction="column">
-              <Text highContrast color="sky" align="center" size="5">Con ayuda de las cámaras ubicadas en cada una de las sucursales <Strong>se puede identificar a los clientes que visitan las tiendas</Strong>, así como su frecuencia de visita y el tiempo que permanecen en estas. Basado en estos datos, <Strong>el modelo genera sugerencias de promociones</Strong> ser ofrecidas a los clientes.</Text>
-            </Flex>
-            <Flex justify="center" mt="6">
-              <Image
-                style={{
-                  borderRadius: '8px',
-                  border: '1px solid crimson'
-                }}
-                src={oxxocomb}
-                width={600}
-                height={600}
-                alt="House Example"
-                className="rounded-lg" />
-            </Flex>
 
-          </Card>
-        </Flex>
 
       </ScrollArea>
       <Toaster />
