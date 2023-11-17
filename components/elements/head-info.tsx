@@ -9,7 +9,7 @@ import { ArrowRightIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons'
 
 const HeadInfo = (props: any) => {
   return (
-    <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
+    <section className="container grid items-center gap-10 md:py-10">
       <Flex className="flex mr-8 ml-8" justify="center">
         {/* Mitad Izquierda*/}
         <Grid   className=" grid content-start p-6 w-1/2 mt-14">
@@ -27,20 +27,20 @@ const HeadInfo = (props: any) => {
             </Flex>
         </Grid>
         {/* Mitad Derecha*/}
-        <div className="w-1/3 flex items-center ml-16">
+        <Flex mt="-9" className="w-1/3 flex items-center ml-16">
           
           <Image
           
 
             style={{
               borderRadius: '8px',
-              border: '1px solid crimson',
-              marginLeft:'8'
+              //border: '1px solid crimson',
+              marginLeft:'8',
             }}
 
             src={props.image}
             alt="House Example" />
-        </div>
+        </Flex>
       </Flex>
     </section>
   )
