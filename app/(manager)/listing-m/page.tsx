@@ -66,7 +66,7 @@ export default function ListingM() {
             <ScrollArea className="max-h-[400px] mt-6 rounded-md overflow-auto">
                 <Flex justify="center" ml="4" mt="7">
                     <Flex gap="4" direction="column" justify="center">
-                        <Grid columns="3" gap="3" width="auto">
+                        <Grid columns="3" gap="3" width="100%">
                             {dataPlates.map((plate: any, index: any) => (
                                 <PlateInfo
                                     key={index}

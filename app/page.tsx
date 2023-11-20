@@ -5,10 +5,6 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Toaster } from "@/components/ui/toaster";
 
 
-
-import oxxosl from ".//assets/oxxosl.jpg";
-import oxxocomb from ".//assets/oxxocomb.jpg";
-import cover from ".//assets/cover.jpg"
 import finalcover from ".//assets/finalcover4.png"
 import graphs from ".//assets/graphsalt.png"
 import lupa from ".//assets/lupa.png"
@@ -19,22 +15,12 @@ import BackgroundSVG from '@/components/backgroundsvg';
 import GraphsInfo from '@/components/elements/graphs-info';
 
 import {
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { DesktopIcon, BarChartIcon } from '@radix-ui/react-icons/'
 import UserInfo from '@/components/elements/user-info';
 
 
@@ -44,7 +30,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between">
 
       <BackgroundSVG />
-      <ScrollArea className="h-[715px] w-[1422px] rounded-md ">
+
         <Flex justify="center" mt="6" direction="row">
 
           <Image
@@ -123,7 +109,7 @@ export default function Home() {
 
 
 
-      </ScrollArea>
+
       <Toaster />
     </main>
   )
