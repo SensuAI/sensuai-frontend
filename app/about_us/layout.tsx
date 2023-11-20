@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ['latin'] })
 interface ManagerLayoutProps {
   children: ReactNode;
 }
-const ManagerLayout: FC<ManagerLayoutProps> = ({ children }) => {
+const AboutLayout: FC<ManagerLayoutProps> = ({ children }) => {
   return (
     <div>
         <SiteHeader />{children}
@@ -25,4 +25,4 @@ const ManagerLayout: FC<ManagerLayoutProps> = ({ children }) => {
   )
 };
 
-export default ManagerLayout;
+export default AboutLayout;
