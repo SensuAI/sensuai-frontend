@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image'
 import { Container, Flex, Heading, Text, Card, Box, TextFieldInput, Link, Button } from '@radix-ui/themes'
 import * as Form from '@radix-ui/react-form';
 import React, { use } from 'react';
@@ -32,7 +33,7 @@ function SignIn() {
           description: "The user was found " + userId,
           duration: 3000,
         });
-            //localStorage.setItem("token", Response.token);
+        //localStorage.setItem("token", Response.token);
         localStorage.setItem("user", JSON.stringify(Response.user));
         localStorage.setItem("id", Response.user._id);
         if (Response.user.role == "ADMIN")
@@ -51,7 +52,7 @@ function SignIn() {
       });
     }
   }
-  
+
 
   const [serverErrors, setServerErrors] = React.useState({
     email: false,
@@ -59,12 +60,21 @@ function SignIn() {
   });
   return (
 
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center justify-between p-6">
 
       <BackgroundSVG />
 
       <Container size="1">
         <Flex direction="column" pb="4">
+          <Flex justify="center" direction="row" pb="2">
+
+            <Image
+              src="/logoredeyyealt.png"
+              alt="Logo oxxo"
+              width={125}
+              height={125}
+            />
+          </Flex>
           <Heading align="center">¡Bienvenido de vuelta!</Heading>
           <Text align="center"> Por favor, digita tus credenciales. </Text>
         </Flex>

@@ -70,7 +70,7 @@ export default function Upload() {
   });
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className="flex flex-col items-center justify-center pt-8 mt-8">
       <BackgroundSVG />
       <Flex gap="4" direction="column">
         <Card size="4" variant='surface' style={{ width: '400px' }}>

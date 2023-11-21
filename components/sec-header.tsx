@@ -19,7 +19,7 @@ export function SecHeader() {
   };
   return (
     <div style={{ zIndex: -1 }}>
-      <header className="bg-gray-500/[.06] sticky top-0 z-40 w-full border-b h-20">
+      <header className="bg-inherit sticky top-0 z-40 w-full border-b h-20">
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <MainNav />
           <div className="flex items-center justify-end space-x-4 mt-4">
