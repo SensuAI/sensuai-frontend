@@ -15,17 +15,21 @@ import admin from "@/app/assets/admin1.png"
 function Admin() {
   const { toast } = useToast();
   const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
-  const userString: any = localStorage.getItem("user");
-  const id: any = localStorage.getItem("id");
-  const user = JSON.parse(userString);
+  const [first_name, setFirstName] = React.useState("Admin");
 
   useEffect(() => {
+    const userString: any = localStorage.getItem("user");
+    const id: any = localStorage.getItem("id");
+    
+    const user = JSON.parse(userString);
+  
     if (!userString) {
       redirectToHomePage();
       return;
     }
     if (user.role !== "ADMIN") {
       redirectToHomePage();
+      setFirstName(user.first_name);
     } else {
       toast({
         description: "Bienvenido de vuelta!",
@@ -38,7 +42,7 @@ function Admin() {
     <div className="w-full flex flex-col items-center p-6">
 
       <BackgroundSVG />
-      <Heading align="center" size="7" mb="2">¡Hola, <Strong color='sky'>{user.first_name}</Strong>!</Heading>
+      <Heading align="center" size="7" mb="2">¡Hola, <Strong color='sky'>{first_name}</Strong>!</Heading>
       <Text align="center" size="4" mb="1">Te presentamos las opciones a elegir como administrador,</Text>
       <Text size="4" mb="4"> ¡Dinos cómo podemos ayudarte!</Text>
       {/* <Image width={100}

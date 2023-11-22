@@ -11,13 +11,12 @@ import manager from "@/app/assets/manager1.png"
 function Manager() {
   const { toast } = useToast();
   const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
-
-  const userString: any = localStorage.getItem("user");
-  const id = localStorage.getItem("id");
-  const user = JSON.parse(userString);
-
+  const [first_name, setFirstName] = React.useState("Admin");
 
   useEffect(() => {
+    const userString: any = localStorage.getItem("user");
+    const id = localStorage.getItem("id");
+    const user = JSON.parse(userString);
 
     if (!userString) {
       redirectToHomePage();
@@ -25,6 +24,7 @@ function Manager() {
     }
     if (user.role !== "MANAGER") {
       redirectToHomePage();
+      setFirstName(user.first_name);
     } else {
       toast({
         description: "Bienvenido de vuelta!",
@@ -38,7 +38,7 @@ function Manager() {
     <div className="w-full flex flex-col items-center p-6">
 
       <BackgroundSVG />
-      <Heading align="center" size="7" mb="2">¡Hola, <Strong color='sky'>{user.first_name}</Strong>!</Heading>
+      <Heading align="center" size="7" mb="2">¡Hola, <Strong color='sky'>{first_name}</Strong>!</Heading>
       <Text size="4" mb="1" align="center">Te presentamos las opciones a elegir como gerente,</Text>
       <Text size="4" mb="4"> ¡Dinos cómo podemos ayudarte!</Text>
       {/* <Image width={100}
