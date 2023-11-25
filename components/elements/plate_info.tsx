@@ -66,8 +66,8 @@ const PlateInfo = (props: any) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost" style={{ color: props.username==="No registrado" ? 'green' : '#C83B38' }}>
-          <Box>
+        <Button variant="ghost" style={{ color: props.username==="No registrado" ? 'green' : '#C83B38'}}>
+          <Box width="100%">
             <Card>
               <Flex direction="row" justify="start">
                 <EyeOpenIcon />
