@@ -7,6 +7,9 @@ import { EyeOpenIcon } from '@radix-ui/react-icons/'
 
 
 const AboutInfo = (props: any) => {
+    /**
+     * Componente que muestra la información de la empresa
+     */
     return (
         <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
             <Flex className="flex mr-8 ml-8" justify="center">

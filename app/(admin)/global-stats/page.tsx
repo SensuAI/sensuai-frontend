@@ -20,9 +20,14 @@ import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 import CustomRectangleGraph from "@/components/charts/customized-rectangle";
 import { useUserContext } from '@/app/Context/userContext';
 
+/*
+  * Página que muestra las estadísticas globales de todas las sucursales
+*/
+
 // Services
 import { visitsPerMonth, meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
 
+// Datos que se muestran en la gráfica de barras
 const data = [
   { month: "Enero", visits: 5000 },
   { month: "Febrero", visits: 6200 },
