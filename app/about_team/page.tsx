@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import BackgroundSVG from "@/components/backgroundsvg";
-import oxxosl from "../assets/oxxosl.jpg";
-
+import David from "../assets/David.jpg";
+import Eduardo from "../assets/BiologiaCV.png";
+import Max from "../assets/MaxBA.jpg";
+import Jorge from "../assets/JorgeB.jpg";
+import Usuario from "../assets/normal.jpg";
 interface TeamMember {
     name: string;
     role: string;
@@ -12,17 +15,56 @@ interface TeamMember {
   
   const team: TeamMember[] = [
     {
-      name: 'Nombre1',
-      role: 'Carrera1',
-      email: 'correo1@example.com',
-      image: oxxosl,
+      name: 'David Damián Galán',
+      role: 'Ingeniería en Sistemas Computacionales',
+      email: 'a01752785@tec.mx',
+      image: David,
     },
     {
-      name: 'Nombre2',
-      role: 'Carrera2',
-      email: 'correo2@example.com',
-      image: oxxosl,
+      name: 'Eduardo Joel Cortéz Valente',
+      role: 'Ingeniería en Sistemas Computacionales',
+      email: 'a01746664@tec.mx',
+      image: Eduardo,
     },
+    {
+      name: 'Maximiliano Benítez Ahumada',
+      role: 'Ingeniería en Sistemas Computacionales',
+      email: 'a01752791@tec.mx',
+      image: Max,
+    },
+    {
+      name: 'Jorge Isidro Blanco Martínez',
+      role: 'Ingeniería en Sistemas Computacionales',
+      email: 'a01745907@tec.mx',
+      image: Jorge,
+    },
+    {
+      name: 'Ainhara Itzae Mejía Rivera',
+      role: 'Ingeniería en Ciencia de Datos y Matemáticas',
+      email: 'a01745041@tec.mx',
+      image: Usuario,
+    }
+    ,
+    {
+      name: 'Pablo Ortiz Aurrecoechea',
+      role: 'Ingeniería en Ciencia de Datos y Matemáticas',
+      email: 'a01023791@tec.mx',
+      image: Usuario,
+    }
+    ,
+    {
+      name: 'Alejandro Somarriba Aguirre',
+      role: 'Ingeniería en Ciencia de Datos y Matemáticas',
+      email: 'a01751277@tec.mx',
+      image: Usuario,
+    }
+    ,
+    {
+      name: 'Ximena Montserrat Sánchez Rubio',
+      role: 'Ingeniería en Ciencia de Datos y Matemáticas',
+      email: 'a01378326@tec.mx',
+      image: Usuario,
+    }
   ];
 
 const AboutTeamPage: React.FC = () => {
