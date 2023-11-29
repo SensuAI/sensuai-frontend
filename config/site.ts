@@ -24,7 +24,7 @@ export const siteConfig = {
       href: "/about_us",
     },
     {
-      title: "Sobre el Equipo",
+      title: "Conoce al equipo",
       href: "/about_team",
     }
   ],
