@@ -23,11 +23,14 @@ export const siteConfig = {
       title: "Sobre nosotros",
       href: "/about_us",
     },
+    {
+      title: "Sobre el Equipo",
+      href: "/about_team",
+    }
   ],
 
 
   links: {
-    twitter: "https://www.instagram.com/eduardo_corval/",
     github: "https://github.com/SensuAI",
     docs: "https://ui.shadcn.com",
   },

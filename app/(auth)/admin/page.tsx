@@ -11,6 +11,9 @@ import { useRouter } from 'next/navigation';
 import { Toaster } from "@/components/ui/toaster";
 import admin from "@/app/assets/admin1.png"
 
+/*
+  * Página que muestra las opciones a elegir como administrador
+*/
 
 function Admin() {
   const { toast } = useToast();

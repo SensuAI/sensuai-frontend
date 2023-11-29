@@ -6,6 +6,9 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 import BackgroundSVG from "@/components/backgroundsvg"
 
+/*
+  * Página que muestra los managers y sucursales registradas
+*/
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -32,6 +35,7 @@ import { useEffect } from "react"
 import { getAllBranches } from "@/services/branch-service"
 import { useUserContext } from '@/app/Context/userContext';
 
+// Datos de sucursales
 const data: Branch[] = [
   {
     amount: 316,
@@ -74,6 +78,7 @@ const data: Branch[] = [
   },
 ]
 
+// Datos de gerentes
 const dataM: Manager[] = [
   {
     amount: 316,
@@ -107,6 +112,7 @@ const dataM: Manager[] = [
   }
 ]
 
+// Obtener datos de sucursales y managers
 export default function Listing() {
   const { toast } = useToast();
   const [dataManagers, setDataManagers] = React.useState([]);
