@@ -12,6 +12,7 @@ import {
   Line,
 } from "recharts";
 
+// Gráfica de barras para mostrar las ganancias por hora en un día
 const data_local = [
   { time: "0", income: 2000 },
   { time: "1", income: 1000 },

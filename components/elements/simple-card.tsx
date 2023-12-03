@@ -5,6 +5,7 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
+  // Componente para mostrar una imagen con un título Y UN TEXTO
 const SimpleCard = (props: any) => {
     return (
         <Card>

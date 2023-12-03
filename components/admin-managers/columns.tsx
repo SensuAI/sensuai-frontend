@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-// Define the Payment type
+// Definir tipo de dato que se va a utilizar
 export type Manager = {
   amount: number
   status: "pending" | "processing" | "success" | "failed"
@@ -26,7 +26,7 @@ export type Manager = {
   role: "MANAGER";
 }
 
-// Define the columns
+// Definir las columnas de la tabla
 export const columnsM: ColumnDef<Manager>[] = [
     {
       id: "select",

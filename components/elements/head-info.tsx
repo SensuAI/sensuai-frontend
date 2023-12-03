@@ -6,7 +6,7 @@ import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/theme
 import { ArrowRightIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons'
 
 
-
+// Componente para mostrar información en inicio
 const HeadInfo = (props: any) => {
   return (
     <section className="container grid items-center gap-10 md:py-10">

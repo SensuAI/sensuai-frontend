@@ -1,6 +1,7 @@
 import React from "react";
 import { CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from "recharts";
 
+// Gráfica de dispersión para mostrar el precio de los combustibles por litro
 const data01 = [
     {
       "x": 50,

@@ -33,6 +33,7 @@ import { useUserContext } from '@/app/Context/userContext';
 // Services 
 import { meanTransactionTimePerMonth, incomePerHour } from "@/services/stadistics-service";
 
+// Página de estadísticas de la sucursal
 const BranchStatsPage = () => {
   const { toast } = useToast();
   const [branchName, setBranchName] = useState("OXXO");

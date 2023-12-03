@@ -19,6 +19,8 @@ const platesData: any = [
     { plate: "R59-ADF", username: "Mock User", gas_quantity: 20, additional_services: 10, last_visited: "07/09/23", last_payment_method: "CreditCard", all_amounts: 430, minutes_transaction: 10 },
 ]
 
+// Página para listar las placas registradas
+
 export default function ListingM() {
     const { toast } = useToast();
     const [dataPlates, setDataPlates] = React.useState<any>([]);

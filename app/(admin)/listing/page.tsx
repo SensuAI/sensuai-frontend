@@ -150,6 +150,7 @@ export default function Listing() {
     }
   }
 
+  // Comprobar que el usuario sea administrador
   useEffect(() => {
     const userString: any = localStorage.getItem("user");
     const id: any = localStorage.getItem("id");

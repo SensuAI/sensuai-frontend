@@ -12,6 +12,9 @@ import {
   Line,
 } from "recharts";
 
+
+// Gráfica de barras para mostrar las visitas por hora en un día
+
 const data = [
   { time: "0", visits: 1 },
   { time: "1", visits: 1 },

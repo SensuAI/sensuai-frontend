@@ -1,3 +1,4 @@
+// Desc: Small text, title, text
 const SmtextTitleText = (props:any) => {
     return (
         <section className="w-5/6 mx-auto p-8">

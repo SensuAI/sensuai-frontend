@@ -2,7 +2,7 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { format, parseISO, startOfWeek, endOfWeek, eachDayOfInterval } from "date-fns";
 
-
+// Gráfica de barras para mostrar el tiempo medio de las transacciones por semana
 const HistogramBarChart = ({data}) => {
   // Transformar las fechas a objetos Date
 const formattedData = data.map((entry) => {

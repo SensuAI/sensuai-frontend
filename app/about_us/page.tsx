@@ -9,6 +9,8 @@ import AboutInfo from "@/components/elements/about_us_info";
 import oxxoeyye from "../assets/LogoEYYE2.png";
 import oxxocomb from "../assets/oxxocomb.jpg";
 
+// Página de información sobre el proyecto
+
 const AboutUsPage: React.FC = () => {
   return (
     <main className="flex flex-col items-center justify-center w-full h-full">

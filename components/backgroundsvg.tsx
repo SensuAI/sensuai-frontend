@@ -1,5 +1,6 @@
 import React from "react";
 
+// Fondo de la página
 function BackgroundSVG() {
     return (
   

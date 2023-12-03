@@ -12,6 +12,7 @@ import {
   Rectangle,
 } from 'recharts';
 
+// Gráfica para mostrar el monto de ganancias mínimo y máximo por mes
 const data = [
   {
     name: 'Jul 2023',

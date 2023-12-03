@@ -20,6 +20,7 @@ function Admin() {
   const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
   const [first_name, setFirstName] = React.useState("Admin");
 
+  // Comprobar que el usuario esté loggeado
   useEffect(() => {
     const userString: any = localStorage.getItem("user");
     const id: any = localStorage.getItem("id");

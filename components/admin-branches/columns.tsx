@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-// Define the Payment type
+// Definir el tipo de dato que se va a utilizar
 export type Branch = {
   amount: number
   status: "pending" | "processing" | "success" | "failed"
@@ -28,7 +28,7 @@ export type Branch = {
   id_manager: string; //
 }
 
-// Define the columns
+// Definir las columnas de la tabla
 export const columns: ColumnDef<Branch>[] = [
     {
       id: "select",

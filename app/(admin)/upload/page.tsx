@@ -11,6 +11,8 @@ import { Toaster } from "@/components/ui/toaster";
 import Image from "next/image";
 import jpgicon from "../../assets/jpg_icon.png";
 import placas from "../../assets/placas.png";
+
+// Página para subir una placa
 export default function Upload() {
   const { toast } = useToast();
 

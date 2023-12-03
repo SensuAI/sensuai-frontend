@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/themes'
 import { EyeOpenIcon, LightningBoltIcon, TargetIcon } from '@radix-ui/react-icons/'
 
+// Componente para mostrar la información de los gráficos
 
 const GraphsInfo = (props: any) => {
     return (
