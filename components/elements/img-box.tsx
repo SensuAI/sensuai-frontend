@@ -10,7 +10,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-
+// Componente para mostrar una imagen con un título, un texto y un botón
 const ImgBox = (props: any) => {
     return (
         <section className="w-5/6 mx-auto p-8 mb-10">

@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from "recharts";
 
+// Gráfica de barras para mostrar las visitas por mes
 const data = [
     { month: "Enero", visits: 1200 },
     { month: "Febrero", visits: 1500 },

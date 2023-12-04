@@ -14,7 +14,7 @@ import { useUserContext } from '@/app/Context/userContext';
 // Services
 import { changePassword } from "@/services/authentication-service";
 
-
+// Página para cambiar la contraseña
 
 export default function Upload() {
   const router = useRouter();
@@ -38,6 +38,7 @@ export default function Upload() {
     }
   }, [userId, toast]);
 
+  // Cambiar contraseña
   async function changeOfPassword(email: string, password: string, new_password: string) {
     try {
       const response: any = await changePassword(email, password, new_password);
@@ -62,6 +63,7 @@ export default function Upload() {
     }
   }
 
+  // Subir form y comprobar errores
   function submitForm(data: any) {
     if ((data) && (data.newPassword === data.repPassword)) {
       changeOfPassword(emailContext, data.password, data.newPassword);

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select"
 import BackgroundSVG from '@/components/backgroundsvg';
 
+// Página para registrar un nuevo usuario
 function SignUp() {
 
   function submitForm(data: any) {

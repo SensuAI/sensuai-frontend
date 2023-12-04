@@ -5,6 +5,7 @@ import {
     CardTitle,
   } from "@/components/ui/card";
   
+  // Componente para mostrar un ícono con un título y un contenido
   const IconCard = (props: any) => {
     return (
         <Card>

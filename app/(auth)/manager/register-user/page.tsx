@@ -13,12 +13,14 @@ import { useEffect } from "react";
 import { useUserContext } from '@/app/Context/userContext';
 import { assignUser } from "@/services/plate-service";
 
+// Página para registrar un nuevo usuario
 export default function Upload() {
   const router = useRouter();
   const { toast } = useToast();
   const [emailContext, setEmailContext] = React.useState("");
   const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
 
+  // Comprobar que el usuario esté loggeado como manager
   useEffect(() => {
     const userString: any = localStorage.getItem("user");
     const id = localStorage.getItem("id");

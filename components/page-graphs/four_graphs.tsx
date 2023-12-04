@@ -15,6 +15,7 @@ import { typeOfPaymentCount, visitsPerHour, visitsPerMonth } from "@/services/st
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
 
+// Componente para mostrar gráficas de estadísticas de gerente
 
 const data01: any = [
   {

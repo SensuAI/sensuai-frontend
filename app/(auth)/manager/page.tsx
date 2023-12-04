@@ -8,11 +8,13 @@ import { useUserContext } from '@/app/Context/userContext';
 import { useEffect } from 'react';
 import manager from "@/app/assets/manager1.png"
 
+// Página principal del gerente
 function Manager() {
   const { toast } = useToast();
   const { userId, setUserId, data, setData, redirectToHomePage } = useUserContext();
   const [first_name, setFirstName] = React.useState("Admin");
 
+  // Comprobar que el usuario esté loggeado
   useEffect(() => {
     const userString: any = localStorage.getItem("user");
     const id = localStorage.getItem("id");

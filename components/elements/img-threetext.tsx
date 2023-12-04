@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Componente para mostrar una imagen con tres apartados de texto
 const ImgThreetext = (props: any) => {
     return (
         <section className="flex items-center justify-center mx-14 mt-8">

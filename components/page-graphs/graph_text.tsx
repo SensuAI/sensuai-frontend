@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Heading, Text } from "@radix-ui/themes";
 import CarsTypeChart from "@/components/charts/cars_type";
 
+// Componente para mostrar gráfica con texto a la derecha
 const GraphText = (props: any) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">

@@ -6,6 +6,7 @@ import React from 'react';
 
 import { signup } from '@/services/authentication-service';
 
+// Formulario para dar de alta un gerente
 const ManagerForm = () => {
   const { toast } = useToast();
 

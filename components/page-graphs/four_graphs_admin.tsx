@@ -14,6 +14,7 @@ import {
   
   import { useEffect, useState } from "react";
   
+  // Componente para mostrar gráficas de estadísticas de admin
   const data01: any = [
     {
       name: "CreditCard",

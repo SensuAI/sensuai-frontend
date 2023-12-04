@@ -9,6 +9,7 @@ import {
   Radar,
 } from "recharts";
 
+// Gráfica de radar para mostrar el tipo de vehiculos
 const data = [
     {
       "Tipo": "Camion",

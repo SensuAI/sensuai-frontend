@@ -2,6 +2,7 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { format, parseISO, endOfWeek, eachDayOfInterval } from "date-fns";
 
+// Gráfica de barras para mostrar el número de transacciones por semana
 const TransactionsBarChart = ({data}) => {
 // Transformar las fechas a objetos Date
 const formattedData = data.map((entry) => {

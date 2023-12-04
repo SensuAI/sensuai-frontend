@@ -14,6 +14,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { getPlateStadistics } from "@/services/plate-service";
 import { promos } from "@/services/promos-service";
 
+// Componente para mostrar información de las placas
 const PlateInfo = (props: any) => {
   const { toast } = useToast();
   const [dataSatistics, setDataStadistics] = React.useState<any>([]);

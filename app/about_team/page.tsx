@@ -6,6 +6,8 @@ import Eduardo from "../assets/BiologiaCV.png";
 import Max from "../assets/MaxBA.jpg";
 import Jorge from "../assets/JorgeB.jpg";
 import Usuario from "../assets/normal.jpg";
+
+// Página para mostrar el equipo de trabajo
 interface TeamMember {
     name: string;
     role: string;

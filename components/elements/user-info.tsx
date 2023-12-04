@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Text, Heading, Flex, Strong, Grid, Link, Button } from '@radix-ui/themes'
 import { ArrowRightIcon, DoubleArrowRightIcon, CaretRightIcon } from '@radix-ui/react-icons'
 
-
+// Componente para mostrar información en inicio
 
 const UserInfo = (props: any) => {
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from "recharts";
 
+// Gradica de barras para mostrar el tiempo medio de las transacciones por mes
 const data = [
     { month: "Enero", time: 2 },
     { month: "Febrero", time: 3 },

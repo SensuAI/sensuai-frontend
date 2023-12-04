@@ -1,5 +1,6 @@
 import Image from "next/image"
 
+// Componente para mostrar una imagen con un título y un texto
 const ImgSection = (props: any) => {
   return (
     <section className="max-w-6xl p-8 m-8 flex flex-col items-center justify-center border border-gray-300 rounded-lg">

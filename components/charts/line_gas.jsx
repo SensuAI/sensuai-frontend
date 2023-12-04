@@ -10,6 +10,7 @@ import {
   Line,
 } from "recharts";
 
+// Gráfica que muestra el precio de los combustibles por mes
 const data = [
   { month: "Enero", Regular: 21.27, Premium: 21.96, Diesel: 23.23 },
   { month: "Febrero", Regular: 22.01, Premium: 22.56, Diesel: 24.02 },

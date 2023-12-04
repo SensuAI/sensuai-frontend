@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 
 import BackgroundSVG from '@/components/backgroundsvg';
 
+// Página para iniciar sesión
 function SignIn() {
   const router = useRouter();
   const { toast } = useToast();

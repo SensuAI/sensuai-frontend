@@ -42,7 +42,6 @@ const data = [
   { month: "Noviembre", visits: 8000 },
   { month: "Diciembre", visits: 8500 },
 ];
-
 const BranchStatsPage = () => {
   const { toast } = useToast();
   const [dataVisitsPerMonth, setDataVisitsPerMonth] = useState<any>([]);
@@ -70,6 +69,7 @@ const BranchStatsPage = () => {
   }
 }
 
+  // Comprobar que el usuario sea administrador
   useEffect(() => {
     const userString: any = localStorage.getItem("user");
     const id: any = localStorage.getItem("id");
